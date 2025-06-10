@@ -45,7 +45,7 @@ if (!dir.exists(figures.fp)) {dir.create(figures.fp)}
 #'  - If you're working in an environment with parallel computing set `paral <- TRUE`
 # User settings and command line arguments
 #### =================================================================================================== ####
-beta.reps <- 2; # number of randomizations for beta MNTD
+beta.reps <- 1000; # number of randomizations for beta MNTD
 
 rel_abund <- FALSE # is the otu table in relative abundances such as read mappings?
 
