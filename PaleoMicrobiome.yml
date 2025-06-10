@@ -1,0 +1,26 @@
+name: PaleoMicrobiome_v0.1
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - python>=3.6
+  - r-base>=4.1.0
+  - r-essentials
+  - r-here
+  - r-vegan
+  - r-ape
+  - r-phytools
+  - r-picante
+  - r-rmpi
+  - r-doparallel
+  - r-devtools
+  - bioconductor-ggtree
+  - r-tidytree
+  - r-ggnewscale
+  - r-ggstance
+  - r-ranger
+  - r-janitor
+  - r-viridis
+  - r-caret
+  - r-analogue
