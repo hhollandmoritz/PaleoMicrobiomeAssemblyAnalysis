@@ -23,4 +23,3 @@ dependencies:
   - r-janitor
   - r-viridis
   - r-caret
-  - r-analogue
