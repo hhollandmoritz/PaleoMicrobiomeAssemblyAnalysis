@@ -47,7 +47,7 @@ if (!dir.exists(figures.fp)) {dir.create(figures.fp)}
 #'  - use the max_chunk_size to control how much memory is allocated in total
 #'  - if you have run this program once and already have the rc-bray-curtis null, you can specify it here
 #### =================================================================================================== ####
-beta.reps <- 10000; # number of randomizations for rcbc
+beta.reps <- 1000; # number of randomizations for rcbc
 
 rel_abund <- TRUE # is the otu table in relative abundances such as read mappings?
 
@@ -117,7 +117,7 @@ setDTthreads(threads = n.cores)
 #input <- input
 
 # Read in tree
-magtree <- input$tree
+magtree <- input_all$tree
 
 # Read in betaNTI results, if we want to speedup based on this step
 if(speedup == TRUE) {
@@ -133,7 +133,7 @@ if(speedup == TRUE) {
 # Setting up the data to mesh with the Stegen et al. code
 #spXsite = t(input$otu_table[,2:10]) # test with smaller sample set
 #dim(spXsite)
-spXsite = t(input$otu_table[-1]) 
+spXsite = t(input_all$otu_table[-1]) 
 dim(spXsite)
 
 # If speedup is true, we will only do comparisons for the comparisons that were
