@@ -177,7 +177,7 @@ abundance = apply(spXsite, MARGIN=2, FUN=sum)
 # Tell the user the time/date and what we are doing
 print(date())
 if(!skip_null){
-   writeLines("Calculating null comparisons")
+  writeLines("Calculating null comparisons")
 }
 
 # Function definitions for step 2
@@ -193,7 +193,7 @@ create_spec_comb <- function(nsites = nrow(spXsite), nreps = beta.reps) {
   # nreps number of times. The list can then be used in the create_null function
   # below to parallelize (via apply) each site-by-site null comparison.
   z <- sequence(nsites)
-
+  
   mat_comb <- cbind(
     null.two = unlist(lapply(2:nsites, function(x) x:nsites), use.names = FALSE),
     null.one = rep(z[-length(z)], times = rev(tail(z, -1))-1)) # a two-site matrix for our null comparisons
@@ -309,7 +309,7 @@ create_null <- function(site_comb, spXsite = spXsite) {
 if(!skip_null) {
   # Create list of site-by-site comparisons (quick doesn't need to be run in parallel)
   site_comb_list <- create_spec_comb(nsites = nrow(spXsite), nreps = beta.reps)
-
+  
   # Tell the user what's going down
   writeLines(paste("We will be running a total of", nrow(site_comb_list), "comparisons."))
   writeLines(paste("These are the product of", beta.reps, "replications of", nrow(spXsite),   "pairwise sample comparisons with self-comparisons removed. If speedup is set to TRUE, non   -stochastic comparisions have also been removed reducing the total number further."))
@@ -337,9 +337,9 @@ if(paral == TRUE) {
     class(obj) <- c('abstractiter', 'iter')
     obj
   }
-  } else {
+} else {
   iter_seq <- 1:length(site_comb_list)
-  }
+}
 
 # Set the chunk size
 chnk_size <- min(floor(nrow(site_comb_list)/n.cores), max_chunk_size)
@@ -354,11 +354,11 @@ if(!skip_null) {
   # Writing the outputs to temporary files and then reading them in solves that problem
   tmp_null <- here(outputs.fp, "tmp")
   if(!dir.exists(tmp_null)) {
-     dir.create(tmp_null)
+    dir.create(tmp_null)
   } else {
-     # Remove any files already in the tmp directory
-     f <- list.files(tmp_null, include.dirs = F, full.names = T, recursive = T)
-     file.remove(f)
+    # Remove any files already in the tmp directory
+    f <- list.files(tmp_null, include.dirs = F, full.names = T, recursive = T)
+    file.remove(f)
   }
   
   null_bray_curtis.ls <- foreach(a=idivix(nrow(site_comb_list), 
@@ -372,21 +372,21 @@ if(!skip_null) {
                                  .inorder = FALSE,
                                  .errorhandling = "remove",
                                  .verbose = TRUE) %dopar% {
-      null.tmp <- do.call('rbind', lapply(seq(1, length.out=a$m), function(i) {
-        site_comb_temp <- as.list(a$comb[i,])
-        create_null(site_comb = site_comb_temp, spXsite = spXsite)}))
-      # Because the files can get large, write the null comparisons to disk
-      result_file_name <- paste0(a$comb[1,], collapse = "_")
-      tmp <- matrix(unlist(null.tmp), ncol = 4)
-      write.csv(tmp, file = paste0(tmp_null,"/", result_file_name, ".csv"),
-                row.names = FALSE)                           
-  }
+                                   null.tmp <- do.call('rbind', lapply(seq(1, length.out=a$m), function(i) {
+                                     site_comb_temp <- as.list(a$comb[i,])
+                                     create_null(site_comb = site_comb_temp, spXsite = spXsite)}))
+                                   # Because the files can get large, write the null comparisons to disk
+                                   result_file_name <- paste0(a$comb[1,], collapse = "_")
+                                   tmp <- matrix(unlist(null.tmp), ncol = 4)
+                                   write.csv(tmp, file = paste0(tmp_null,"/", result_file_name, ".csv"),
+                                             row.names = FALSE)                           
+                                 }
   writeLines("Finished calculating null replicates at:")
   print(date())
   
   # Read in temporary files
   null_bray_curtis <- list.files(path = tmp_null, pattern = "*.csv", full.name = T) %>% 
-                        map_df(~fread(.))
+    map_df(~fread(.))
   writeLines("Null_bray_curtis")
   # head(null_bray_curtis) # Check
   # tail(null_bray_curtis) # Check
@@ -401,11 +401,11 @@ if(!skip_null) {
   # head(null_bray_curtis) # debugging check, should be a dataframe with 4 columns
   # str(null_bray_curtis) # debugging check
   # null_bray_curtis[ which(null_bray_curtis$site1==1 & null_bray_curtis$site2==2), "null_bc"] # debugging check; should be length of beta.reps and show the null comparisions for sites 1 and 2
-
+  
   gc() # memory control - unclear if necessary but gives date and time, so it's nice
-
+  
   ## Save objects mid-process incase we have to restart.
-
+  
   saveRDS(null_bray_curtis,  paste0(outputs.fp, "/null_bray_curtis.RDS"))
   write.csv(null_bray_curtis,
             paste0(outputs.fp, "/null_bray_curtis_lf.csv"), row.names = FALSE,
@@ -426,7 +426,7 @@ if(skip_null) {
   writeLines("Reading in null bray curtis from:")
   print(paste0(outputs.fp, "/null_bray_curtis_lf.csv"))
   writeLines(paste0("null_bray_curtis_lf.csv was created: ", 
-             file.info(paste0(outputs.fp, "/null_bray_curtis_lf.csv"))$ctime))
+                    file.info(paste0(outputs.fp, "/null_bray_curtis_lf.csv"))$ctime))
   
   null_bray_curtis <- fread(paste0(outputs.fp, "/null_bray_curtis_lf.csv"))
   null_bray_curtis <- null_bray_curtis[, !c("V1")] # get rid of rownames column
@@ -473,7 +473,7 @@ compare_null <- function(site_comb, null_bray_curtis, beta.reps = beta.reps, spX
   
   # Extract the null bray curtis vector for the site under calculation
   null.bc.site <- null_bray_curtis[site1==null.one & site2==null.two, "null_bc"]
-
+  
   # How many null observations is the observed value tied with?
   num_exact_matching_in_null = sum(null.bc.site==obs.bray);
   
@@ -502,48 +502,48 @@ chnk_size <- max(n.cores, chnk_size) # n.cores represents the low end of tasks w
 writeLines(paste("To speed up processing, chunk size is set to", chnk_size, "which means there will be", nrow(site_comb_list)/chnk_size, "tasks to complete."))
 
 if(paral == TRUE) {
-# Define the iterator interpretor function
-# this one will return slices of a list no larger than chunkSize
-# Importantly, it needs to subset null_bray_curtis to a small enough
-# size to operate on, BUT all iterations for each null site combination
-# must be included so the length.out can't be smaller than beta.reps.
-idivix <- function(n, chunkSize, null_bray_curtis, beta.reps) {
-  i <- 1
-  it <- idiv(n, chunkSize=chunkSize)
-  
-  nextEl <- function() {
-    m <- nextElem(it)  # may throw 'StopIterator'
-    # make sure that each iteration starts on beta.reps + 1
-    beta_start <- ifelse(i != 1, ((i-1)*beta.reps) + 1, i)
-    nullbc <- null_bray_curtis[seq(beta_start, length.out=m*beta.reps),]
-    comb <- unique(nullbc[,c("site1", "site2")])
-    # Create a list of iterator outputs
-    # i = start of the iterator site combination
-    # m = length of the number of site combinations in this iterator
-    # comb = a data.table with the unique combinations of sites (no replicates)
-    # nullbc = the sliced null_bray_curtis data.table for this subset of sites
-    # the number of rows in comb (aka the number of site combinations handled at one time)
-    value <- list(i=i, m=m, comb = comb, nullbc = nullbc, ncomb = nrow(comb))
-    i <<- i + m
-    value
+  # Define the iterator interpretor function
+  # this one will return slices of a list no larger than chunkSize
+  # Importantly, it needs to subset null_bray_curtis to a small enough
+  # size to operate on, BUT all iterations for each null site combination
+  # must be included so the length.out can't be smaller than beta.reps.
+  idivix <- function(n, chunkSize, null_bray_curtis, beta.reps) {
+    i <- 1
+    it <- idiv(n, chunkSize=chunkSize)
+    
+    nextEl <- function() {
+      m <- nextElem(it)  # may throw 'StopIterator'
+      # make sure that each iteration starts on beta.reps + 1
+      beta_start <- ifelse(i != 1, ((i-1)*beta.reps) + 1, i)
+      nullbc <- null_bray_curtis[seq(beta_start, length.out=m*beta.reps),]
+      comb <- unique(nullbc[,c("site1", "site2")])
+      # Create a list of iterator outputs
+      # i = start of the iterator site combination
+      # m = length of the number of site combinations in this iterator
+      # comb = a data.table with the unique combinations of sites (no replicates)
+      # nullbc = the sliced null_bray_curtis data.table for this subset of sites
+      # the number of rows in comb (aka the number of site combinations handled at one time)
+      value <- list(i=i, m=m, comb = comb, nullbc = nullbc, ncomb = nrow(comb))
+      i <<- i + m
+      value
+    }
+    obj <- list(nextElem=nextEl)
+    class(obj) <- c('abstractiter', 'iter')
+    obj
   }
-  obj <- list(nextElem=nextEl)
-  class(obj) <- c('abstractiter', 'iter')
-  obj
-}
 }
 
 # Set up the tmp directory to report out - this is important otherwise
 # the final combination object might be too big to hold in memory. 
 # Writing the outputs to temporary files and then reading them in solves that problem
 tmp_comp <- here(outputs.fp, "tmp_2")
-  if(!dir.exists(tmp_comp)) {
-     dir.create(tmp_comp)
-  } else {
-     # Remove any files already in the tmp directory
-     f <- list.files(tmp_comp, include.dirs = F, full.names = T, recursive = T)
-     file.remove(f)
-  }
+if(!dir.exists(tmp_comp)) {
+  dir.create(tmp_comp)
+} else {
+  # Remove any files already in the tmp directory
+  f <- list.files(tmp_comp, include.dirs = F, full.names = T, recursive = T)
+  file.remove(f)
+}
 
 writeLines("Starting results loop")
 results.lf.ls <- foreach(a=idivix(nrow(site_comb_list), 
@@ -551,28 +551,28 @@ results.lf.ls <- foreach(a=idivix(nrow(site_comb_list),
                                   null_bray_curtis=null_bray_curtis,
                                   beta.reps = beta.reps),
                          .packages = c("vegan", "data.table"),
- 	       	       	       .init = NULL,
+                         .init = NULL,
                          .combine = rbind,
                          .multicombine = TRUE,
                          .maxcombine = 100,
                          .inorder = FALSE,
                          .errorhandling = "remove",
                          .verbose = TRUE) %dopar% {
-  comp.tmp <- do.call('rbind', lapply(seq(1, length.out=a$ncomb), function(i) {
-    site_comb_temp <- as.list(a$comb[i,])
-    compare_null(site_comb = site_comb_temp, beta.reps = beta.reps, null_bray_curtis = a$nullbc, spXsite = spXsite)
-    })) 
-  # Because memory can be large write to disk
-  result_file_name <- paste0(a$comb[1,], collapse = "_")
-  tmp <- matrix(unlist(comp.tmp), ncol = 3)
-  write.csv(tmp, file = paste0(tmp_comp,"/", result_file_name, ".csv"),
-                row.names = FALSE)
-}
+                           comp.tmp <- do.call('rbind', lapply(seq(1, length.out=a$ncomb), function(i) {
+                             site_comb_temp <- as.list(a$comb[i,])
+                             compare_null(site_comb = site_comb_temp, beta.reps = beta.reps, null_bray_curtis = a$nullbc, spXsite = spXsite)
+                           })) 
+                           # Because memory can be large write to disk
+                           result_file_name <- paste0(a$comb[1,], collapse = "_")
+                           tmp <- matrix(unlist(comp.tmp), ncol = 3)
+                           write.csv(tmp, file = paste0(tmp_comp,"/", result_file_name, ".csv"),
+                                     row.names = FALSE)
+                         }
 
 # Read in temporary files
 writeLines("reading in tmp files")
 results.lf <- list.files(path = tmp_comp, pattern = "*.csv", full.name = T) %>%
-                        map_df(~fread(.))
+  map_df(~fread(.))
 colnames(results.lf) <- c("RCBC", "site1", "site2")
 
 # Convert results data.table (in long format) to distance matrix (in wide format)
@@ -616,11 +616,11 @@ write.csv(results.lf,
 
 if(paral == TRUE) {
   if (n.cores > 24) {
-     writeLines("closing mpi cluster")
-     # Note: due to this problem: https://stackoverflow.com/questions/41007564/stopcluster-in-r-snow-freeze
-     # using closeCluster will cause the job to hang. To bruteforce it, I will use mpi.exit/mpi.quit instead
-     #doMPI::closeCluster(cl) # due to this problem: 
-
+    writeLines("closing mpi cluster")
+    # Note: due to this problem: https://stackoverflow.com/questions/41007564/stopcluster-in-r-snow-freeze
+    # using closeCluster will cause the job to hang. To bruteforce it, I will use mpi.exit/mpi.quit instead
+    #doMPI::closeCluster(cl) # due to this problem: 
+    
      writeLines("Stopping mpi")
      Rmpi::mpi.exit()
      Rmpi::mpi.quit()  # or mpi.quit(), which quits R as well
