@@ -1,0 +1,469 @@
+"Site1","Site2","BetaNTI","RCBC","Assembly_Process.BetaNTI","Assembly_Process.RCBC","Assembly_Process","TempConditionType","EpochType","Assembly_Process_expl","StochasticDeterministic","RCBC.nona"
+"D30.8","D29.3",-0.485799006803637,0.73,NA,"Drift","Drift","Cold-Cold","Holocene","Stochastic","Stochastic",0.73
+"D100.0","D29.3",1.48075239957313,0.59,NA,"Drift","Drift","Warm-Cold","Holocene","Stochastic","Stochastic",0.59
+"D109.2","D29.3",0.26851749114677,0.528,NA,"Drift","Drift","Warm-Cold","Holocene","Stochastic","Stochastic",0.528
+"D125.0","D29.3",-2.77990024992886,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.37
+"D125.9","D29.3",-2.41903569647345,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.298
+"D126.8","D29.3",-0.426126396461703,0.648,NA,"Drift","Drift","Cold-Cold","Holocene","Stochastic","Stochastic",0.648
+"D127.7","D29.3",0.382500218863988,0.258,NA,"Drift","Drift","Cold-Cold","Holocene","Stochastic","Stochastic",0.258
+"D128.6","D29.3",-0.0128542093081347,0.612,NA,"Drift","Drift","Cold-Cold","Holocene","Stochastic","Stochastic",0.612
+"D131.5","D29.3",-0.491289058616814,0.756,NA,"Drift","Drift","Warm-Cold","Holocene","Stochastic","Stochastic",0.756
+"D134.2","D29.3",-0.964157331279899,-0.76,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.76
+"D173.7","D29.3",-1.24930599170013,-0.046,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",-0.046
+"D173.9","D29.3",-1.33935340930158,0.036,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.036
+"D180.9","D29.3",-2.19862775841463,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.974
+"D187.9","D29.3",-1.01649536829973,-0.528,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.528
+"D198.7","D29.3",-0.139240261116939,0.962,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.962
+"D205.3","D29.3",-3.25611688972894,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.474
+"D207.6","D29.3",-2.23770260528194,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.596
+"D223.1","D29.3",-1.07381678305147,0.31,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.31
+"D224.9","D29.3",-3.15768787588388,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.014
+"D231.0","D29.3",-0.210154389033603,-0.82,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.82
+"D243.9","D29.3",-1.74630730737276,0.688,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.688
+"D245.1","D29.3",-2.11132483488637,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.358
+"D259.9","D29.3",-1.41543851479419,0.0760000000000001,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",0.0760000000000001
+"D261.2","D29.3",-1.33547410110745,-0.194,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.194
+"D271.1","D29.3",-2.19982253651216,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.156
+"D275.0","D29.3",-0.961676191780465,-0.878,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.878
+"D100.0","D30.8",-3.38686168602789,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.028
+"D109.2","D30.8",-2.92253412532834,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.03
+"D125.0","D30.8",-2.76183225905585,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.592
+"D125.9","D30.8",-3.10471103746564,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.386
+"D126.8","D30.8",-2.80138457308113,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.572
+"D127.7","D30.8",-4.26702896811733,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.0860000000000001
+"D128.6","D30.8",-4.29807490475655,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.16
+"D131.5","D30.8",-1.54236764322029,-0.612,NA,"Drift","Drift","Warm-Cold","Holocene","Stochastic","Stochastic",-0.612
+"D134.2","D30.8",-3.09402560506029,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.144
+"D173.7","D30.8",-2.90352106000807,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.404
+"D173.9","D30.8",-3.24989946062871,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.526
+"D180.9","D30.8",-0.549785253725508,0.02,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",0.02
+"D187.9","D30.8",-2.55585374284456,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.116
+"D198.7","D30.8",-3.09298559806172,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.468
+"D205.3","D30.8",-0.370240791754015,0.492,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.492
+"D207.6","D30.8",-2.75232651324995,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.03
+"D223.1","D30.8",-3.01550295258846,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.208
+"D224.9","D30.8",-2.70615328678519,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.692
+"D231.0","D30.8",-2.2892871440033,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.07
+"D243.9","D30.8",-2.86414543433298,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0
+"D245.1","D30.8",-3.53279965225763,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.412
+"D259.9","D30.8",-1.91931546726202,0.186,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",0.186
+"D261.2","D30.8",-2.79966108737035,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.314
+"D271.1","D30.8",-1.8978658688149,0.614,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.614
+"D275.0","D30.8",-0.640703746138411,0.146,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",0.146
+"D109.2","D100.0",-3.49563287830854,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Holocene","Homogenous (abiotic) selection","Deterministic",-0.822
+"D125.0","D100.0",-2.35090562406498,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.0620000000000001
+"D125.9","D100.0",-2.29034078873764,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.012
+"D126.8","D100.0",-2.75031513085605,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.596
+"D127.7","D100.0",-4.44541311318795,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.548
+"D128.6","D100.0",-4.03703599573531,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.552
+"D131.5","D100.0",-2.97074757460063,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Holocene","Homogenous (abiotic) selection","Deterministic",0.136
+"D134.2","D100.0",-2.73251226468358,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.618
+"D173.7","D100.0",-2.62411241395233,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.188
+"D173.9","D100.0",-1.71808496730212,-0.004,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.004
+"D180.9","D100.0",-0.744274050883477,-0.468,NA,"Drift","Drift","Warm-Warm","LGS:Holocene","Stochastic","Stochastic",-0.468
+"D187.9","D100.0",-3.12239483928169,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.0639999999999999
+"D198.7","D100.0",-4.3514578911077,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.342
+"D205.3","D100.0",3.79811467605751,NA,"Heterogenous selection",NA,"Heterogenous selection","Warm-Cold","LGS:Holocene","Heterogenous (biotic) selection","Deterministic",0.666
+"D207.6","D100.0",-2.9225375072233,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.698
+"D223.1","D100.0",-3.76382396244883,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.088
+"D224.9","D100.0",-2.55413764588308,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.322
+"D231.0","D100.0",-2.41655780319318,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.618
+"D243.9","D100.0",-0.617352199463238,-0.114,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.114
+"D245.1","D100.0",-2.50613153692145,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.212
+"D259.9","D100.0",-2.04815023553087,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.076
+"D261.2","D100.0",-2.90101117855141,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.368
+"D271.1","D100.0",-2.20023093124418,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.25
+"D275.0","D100.0",-0.255800107434647,-0.284,NA,"Drift","Drift","Warm-Warm","LGS:Holocene","Stochastic","Stochastic",-0.284
+"D125.0","D109.2",-2.61533742906524,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.334
+"D125.9","D109.2",-2.901219438261,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.388
+"D126.8","D109.2",-3.92935494168318,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.508
+"D127.7","D109.2",-4.36898477849829,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.368
+"D128.6","D109.2",-4.34275517213734,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.372
+"D131.5","D109.2",-3.13056568643152,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Holocene","Homogenous (abiotic) selection","Deterministic",-0.2
+"D134.2","D109.2",-2.44737132010614,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.67
+"D173.7","D109.2",-3.51658945826655,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.476
+"D173.9","D109.2",-1.86226863392147,-0.334,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.334
+"D180.9","D109.2",-1.2056095604473,-0.606,NA,"Drift","Drift","Warm-Warm","LGS:Holocene","Stochastic","Stochastic",-0.606
+"D187.9","D109.2",-3.77888337683628,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.43
+"D198.7","D109.2",-4.65914372654147,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.158
+"D205.3","D109.2",1.85427352721131,0.292,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",0.292
+"D207.6","D109.2",-2.98653063886801,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.614
+"D223.1","D109.2",-3.08801895197848,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.64
+"D224.9","D109.2",-2.69200714435999,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.154
+"D231.0","D109.2",-2.53767352555113,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.708
+"D243.9","D109.2",-1.26742978809251,-0.38,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.38
+"D245.1","D109.2",-1.99919917753569,-0.456,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.456
+"D259.9","D109.2",-3.2613185954632,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.406
+"D261.2","D109.2",-3.25026465120018,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.662
+"D271.1","D109.2",-0.915911182661591,-0.146,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.146
+"D275.0","D109.2",-0.870395511512736,-0.29,NA,"Drift","Drift","Warm-Warm","LGS:Holocene","Stochastic","Stochastic",-0.29
+"D125.9","D125.0",-3.87726137292574,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.842
+"D126.8","D125.0",-2.77337877957775,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.324
+"D127.7","D125.0",-3.45348229772929,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.162
+"D128.6","D125.0",-3.92214592585576,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.556
+"D131.5","D125.0",-1.09928040499243,0.428,NA,"Drift","Drift","Warm-Cold","Holocene","Stochastic","Stochastic",0.428
+"D134.2","D125.0",-2.57851622755587,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.88
+"D173.7","D125.0",-4.35830192943775,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.428
+"D173.9","D125.0",-3.68814818420384,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.184
+"D180.9","D125.0",-2.88925323828208,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-1
+"D187.9","D125.0",-2.88312338071018,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.684
+"D198.7","D125.0",-3.197837629395,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.99
+"D205.3","D125.0",-2.98597951235872,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.616
+"D207.6","D125.0",-3.33430865751853,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.874
+"D223.1","D125.0",-4.24826943188541,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0
+"D224.9","D125.0",-3.69425244387027,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.202
+"D231.0","D125.0",-0.867654098463099,-0.992,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.992
+"D243.9","D125.0",-3.5988319657708,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.688
+"D245.1","D125.0",-3.61777415672664,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.126
+"D259.9","D125.0",-4.2078773615751,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.36
+"D261.2","D125.0",-4.04306499493918,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.842
+"D271.1","D125.0",-3.9704910682281,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.29
+"D275.0","D125.0",-2.02325657773304,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.918
+"D126.8","D125.9",-3.09886186803265,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.072
+"D127.7","D125.9",-3.41286753457,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.252
+"D128.6","D125.9",-3.41383448099247,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.104
+"D131.5","D125.9",-3.05208784980587,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.168
+"D134.2","D125.9",-2.80626635689143,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.828
+"D173.7","D125.9",-3.33956737758561,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.936
+"D173.9","D125.9",-2.99246964117538,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.746
+"D180.9","D125.9",-2.47533501103534,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.988
+"D187.9","D125.9",-3.13001436718301,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.812
+"D198.7","D125.9",-2.88097068020912,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.748
+"D205.3","D125.9",-3.46158493351357,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.112
+"D207.6","D125.9",-3.0918146252943,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.956
+"D223.1","D125.9",-3.9818748253722,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.634
+"D224.9","D125.9",-3.8210374344855,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.92
+"D231.0","D125.9",-2.12571199227956,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.926
+"D243.9","D125.9",-3.6395112176761,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.0600000000000001
+"D245.1","D125.9",-3.12752639175607,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.53
+"D259.9","D125.9",-1.76024888299117,-0.694,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.694
+"D261.2","D125.9",-3.01717225831936,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.934
+"D271.1","D125.9",-4.27478062214921,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.918
+"D275.0","D125.9",-2.90032402546865,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.73
+"D127.7","D126.8",-3.91866395430892,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.63
+"D128.6","D126.8",-4.96850745596857,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.312
+"D131.5","D126.8",-3.70400899022759,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.588
+"D134.2","D126.8",-2.97195677154467,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.598
+"D173.7","D126.8",-3.79843436447457,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.0679999999999999
+"D173.9","D126.8",-3.52344200419388,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.022
+"D180.9","D126.8",-0.36375101570446,-0.598,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.598
+"D187.9","D126.8",-2.89025680748336,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.43
+"D198.7","D126.8",-4.25035849573009,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.504
+"D205.3","D126.8",0.460269577312225,0.22,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.22
+"D207.6","D126.8",-3.23433031390245,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.524
+"D223.1","D126.8",-4.87804541259943,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.278
+"D224.9","D126.8",-3.38447717329882,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.354
+"D231.0","D126.8",-1.48626779139806,-0.774,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.774
+"D243.9","D126.8",-2.21000185173059,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.178
+"D245.1","D126.8",-3.10691897155092,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.106
+"D259.9","D126.8",-1.79909918919836,-0.422,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.422
+"D261.2","D126.8",-2.797961821987,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.41
+"D271.1","D126.8",-1.82032099932001,0.25,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.25
+"D275.0","D126.8",-0.801513719899162,-0.328,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.328
+"D128.6","D127.7",-4.27329050146786,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",-0.816
+"D131.5","D127.7",-4.52896088318486,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.042
+"D134.2","D127.7",-3.45362450903045,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.812
+"D173.7","D127.7",-4.27220598753753,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.45
+"D173.9","D127.7",-3.58600080351704,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.388
+"D180.9","D127.7",-1.55520969868919,-0.736,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.736
+"D187.9","D127.7",-4.01349590043088,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.478
+"D198.7","D127.7",-4.84258853633393,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.324
+"D205.3","D127.7",-1.10086541372741,0.168,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.168
+"D207.6","D127.7",-3.58241736264515,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.772
+"D223.1","D127.7",-3.77269638798158,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.686
+"D224.9","D127.7",-3.64927917647306,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.1
+"D231.0","D127.7",-2.64835030990648,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.872
+"D243.9","D127.7",-2.29392786333919,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.504
+"D245.1","D127.7",-3.05931383565848,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.604
+"D259.9","D127.7",-2.27062484913886,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.38
+"D261.2","D127.7",-3.79727081558413,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.34
+"D271.1","D127.7",-3.87809060166271,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.04
+"D275.0","D127.7",-1.38650046160195,-0.576,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.576
+"D131.5","D128.6",-5.13737787260143,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Holocene","Homogenous (abiotic) selection","Deterministic",0.312
+"D134.2","D128.6",-3.22044858295161,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.86
+"D173.7","D128.6",-5.09833723154259,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.014
+"D173.9","D128.6",-4.04507180881769,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.044
+"D180.9","D128.6",-1.85390548424372,-0.544,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.544
+"D187.9","D128.6",-4.20086068676617,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.214
+"D198.7","D128.6",-5.39291769994443,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.302
+"D205.3","D128.6",-0.598163537690244,0.789,NA,"Drift","Drift","Cold-Cold","LGS:Holocene","Stochastic","Stochastic",0.789
+"D207.6","D128.6",-4.01365400704163,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.63
+"D223.1","D128.6",-2.92720264242048,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.318
+"D224.9","D128.6",-3.5895998772648,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.59
+"D231.0","D128.6",-3.09793515874884,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.8
+"D243.9","D128.6",-2.30063152933464,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.104
+"D245.1","D128.6",-3.45763769577909,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.164
+"D259.9","D128.6",-2.62038371002949,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.024
+"D261.2","D128.6",-4.4273862287263,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.1
+"D271.1","D128.6",-3.77196611688964,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.33
+"D275.0","D128.6",-1.86329548567219,-0.564,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",-0.564
+"D134.2","D131.5",-3.13548756827037,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.352
+"D173.7","D131.5",-2.2407557648747,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.33
+"D173.9","D131.5",-3.89173203571959,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.388
+"D180.9","D131.5",-0.819735804108247,-0.332,NA,"Drift","Drift","Warm-Warm","LGS:Holocene","Stochastic","Stochastic",-0.332
+"D187.9","D131.5",-2.87752440965696,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.052
+"D198.7","D131.5",-3.66728187396503,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.668
+"D205.3","D131.5",0.359906168872025,0.16,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",0.16
+"D207.6","D131.5",-2.16541508889265,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",-0.374
+"D223.1","D131.5",-3.46774859301004,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0
+"D224.9","D131.5",-2.33955863667428,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.544
+"D231.0","D131.5",-0.694204807492023,-0.496,NA,"Drift","Drift","Warm-Warm","LGS:Holocene","Stochastic","Stochastic",-0.496
+"D243.9","D131.5",-3.42687087045575,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.104
+"D245.1","D131.5",-3.43324794883252,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS:Holocene","Homogenous (abiotic) selection","Deterministic",0.346
+"D259.9","D131.5",-1.64142346836281,-0.056,NA,"Drift","Drift","Warm-Warm","LGS:Holocene","Stochastic","Stochastic",-0.056
+"D261.2","D131.5",-1.86533849705527,-0.03,NA,"Drift","Drift","Warm-Warm","LGS:Holocene","Stochastic","Stochastic",-0.03
+"D271.1","D131.5",-0.939629703462687,0.456,NA,"Drift","Drift","Warm-Cold","LGS:Holocene","Stochastic","Stochastic",0.456
+"D275.0","D131.5",-1.09786159756173,0.0640000000000001,NA,"Drift","Drift","Warm-Warm","LGS:Holocene","Stochastic","Stochastic",0.0640000000000001
+"D173.7","D134.2",-3.25409375927993,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.904
+"D173.9","D134.2",-2.39992807777413,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.9
+"D180.9","D134.2",-2.40585747297222,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.746
+"D187.9","D134.2",-3.16779308346611,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.884
+"D198.7","D134.2",-2.94012155778948,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.396
+"D205.3","D134.2",-0.895506506875849,-0.792,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.792
+"D207.6","D134.2",-2.84988362857172,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.678
+"D223.1","D134.2",-2.17950104805373,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.966
+"D224.9","D134.2",-2.49423574539365,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.612
+"D231.0","D134.2",-2.35282040524903,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.89
+"D243.9","D134.2",-1.60196595109738,-0.902,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.902
+"D245.1","D134.2",-2.61309295210008,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.914
+"D259.9","D134.2",-2.49101402527439,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.502
+"D261.2","D134.2",-3.23045382982177,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.6
+"D271.1","D134.2",-2.4900448292505,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.598
+"D275.0","D134.2",-2.43925547162899,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.746
+"D276.6","D134.2",-1.79664915323494,-0.00600000000000001,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",-0.00600000000000001
+"D282.1","D134.2",-1.52637053549776,0.106,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.106
+"D296.9","D134.2",-1.84274181180542,0.908,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.908
+"D303.5","D134.2",-2.64140818875981,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.379
+"D307.5","D134.2",-1.94381988470914,0.824,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.824
+"D308.7","D134.2",-1.40422847614054,0.42,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.42
+"D173.9","D173.7",-4.31310640276872,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.66
+"D180.9","D173.7",-1.33300466934678,-0.978,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Cold","LGS","Stochastic","Stochastic",-0.978
+"D187.9","D173.7",-4.04437712182473,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.83
+"D198.7","D173.7",-4.07892923977228,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.84
+"D205.3","D173.7",-2.00217195935951,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.342
+"D207.6","D173.7",-3.01014069117425,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.924
+"D223.1","D173.7",-4.27691926597363,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.588
+"D224.9","D173.7",-3.40486284580173,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.716
+"D231.0","D173.7",-0.928918554329633,-0.942,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.942
+"D243.9","D173.7",-2.73902451220711,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.266
+"D245.1","D173.7",-4.28944794889702,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.346
+"D259.9","D173.7",-1.48895706997387,-0.636,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.636
+"D261.2","D173.7",-3.75957578711417,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.826
+"D271.1","D173.7",-3.61916747128602,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.71
+"D275.0","D173.7",-1.71960075807913,-0.704,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.704
+"D276.6","D173.7",-1.83373487225532,0.191,NA,"Drift","Drift","Cold-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.191
+"D282.1","D173.7",-1.35020561248807,0.574,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.574
+"D296.9","D173.7",-1.7965596715857,0.996,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.996
+"D303.5","D173.7",-2.52068867422981,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.842
+"D307.5","D173.7",-1.67023977198501,0.996,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.996
+"D308.7","D173.7",-1.11061860762283,0.91,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.91
+"D180.9","D173.9",-1.43646924285887,-0.956,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Cold","LGS","Stochastic","Stochastic",-0.956
+"D187.9","D173.9",-3.84532947666458,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.802
+"D198.7","D173.9",-4.9901376518718,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.926
+"D205.3","D173.9",-2.48288797721093,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.72
+"D207.6","D173.9",-2.70162366485043,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.808
+"D223.1","D173.9",-4.66931840537032,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.312
+"D224.9","D173.9",-2.97558625270881,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.034
+"D231.0","D173.9",-0.494196278504527,-0.966,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Cold","LGS","Stochastic","Stochastic",-0.966
+"D243.9","D173.9",-4.17352417747498,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.584
+"D245.1","D173.9",-2.45475895098525,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.27
+"D259.9","D173.9",-1.63180524032738,-0.292,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.292
+"D261.2","D173.9",-3.45135875959552,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.556
+"D271.1","D173.9",-2.41614425240005,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.34
+"D275.0","D173.9",-1.51881106747755,-0.856,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.856
+"D276.6","D173.9",-1.60237416998799,0.25,NA,"Drift","Drift","Cold-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.25
+"D282.1","D173.9",-1.2403627890098,0.568,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.568
+"D296.9","D173.9",-1.69314442598755,0.996,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.996
+"D303.5","D173.9",-2.26950250218329,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.926
+"D307.5","D173.9",-1.26277643403555,0.994,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.994
+"D308.7","D173.9",-0.992504345770484,0.952,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.952
+"D187.9","D180.9",-0.791194329812856,-0.948,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.948
+"D198.7","D180.9",-1.62983208553026,0.044,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",0.044
+"D205.3","D180.9",-1.52749485083171,-0.988,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Cold","LGS","Stochastic","Stochastic",-0.988
+"D207.6","D180.9",-2.19552838508185,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.856
+"D223.1","D180.9",-1.6283831383299,-0.924,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.924
+"D224.9","D180.9",-2.18236003853998,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.95
+"D231.0","D180.9",-2.18666412632145,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.95
+"D243.9","D180.9",-1.90950130617228,-0.85,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.85
+"D245.1","D180.9",-3.01345965564777,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.89
+"D259.9","D180.9",-1.4264905949638,-0.842,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.842
+"D261.2","D180.9",-1.13103151579255,-0.92,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.92
+"D271.1","D180.9",0.102068874248688,-0.974,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Cold","LGS","Stochastic","Stochastic",-0.974
+"D275.0","D180.9",-1.86926780482358,-0.892,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.892
+"D276.6","D180.9",-1.81523028983313,-0.226,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",-0.226
+"D282.1","D180.9",-1.5373457865941,0.186,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.186
+"D296.9","D180.9",-1.82044854268177,0.916,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.916
+"D303.5","D180.9",-2.7693900820557,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.82
+"D307.5","D180.9",-1.85581307645854,0.936,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.936
+"D308.7","D180.9",-1.66510553579059,0.806,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.806
+"D198.7","D187.9",-3.27274414942649,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.54
+"D205.3","D187.9",-0.685243672553202,-0.59,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.59
+"D207.6","D187.9",-2.52370405662869,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.762
+"D223.1","D187.9",-3.88701535654085,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.864
+"D224.9","D187.9",-2.75231114749917,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.548
+"D231.0","D187.9",-1.70240925269075,-0.97,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Warm","LGS","Stochastic","Stochastic",-0.97
+"D243.9","D187.9",-3.1009432818997,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.406
+"D245.1","D187.9",-4.00832433363315,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.36
+"D259.9","D187.9",-1.5060636071968,-0.688,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.688
+"D261.2","D187.9",-2.2807295573742,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.752
+"D271.1","D187.9",-1.41339797174033,-0.578,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.578
+"D275.0","D187.9",-1.50820300035711,-0.754,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.754
+"D276.6","D187.9",-1.77717348111329,0.15,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.15
+"D282.1","D187.9",-1.47222168997467,0.556,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.556
+"D296.9","D187.9",-1.7354277814308,0.986,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.986
+"D303.5","D187.9",-2.6209925051601,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.786
+"D307.5","D187.9",-1.54407238706542,0.98,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.98
+"D308.7","D187.9",-1.50566453730484,0.788,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.788
+"D205.3","D198.7",-1.04612734426786,0.992,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Cold-Cold","LGS","Stochastic","Stochastic",0.992
+"D207.6","D198.7",-3.24088593629199,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.206
+"D223.1","D198.7",-4.83634827024127,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.858
+"D224.9","D198.7",-2.96267188672328,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.894
+"D231.0","D198.7",-3.45437027012229,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.0600000000000001
+"D243.9","D198.7",-4.13570824920425,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.93
+"D245.1","D198.7",-4.50871661803763,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.798
+"D259.9","D198.7",-2.77420331529562,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.534
+"D261.2","D198.7",-3.56891814917666,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.352
+"D271.1","D198.7",-2.4668894771592,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.848
+"D275.0","D198.7",-1.44690571974266,0.038,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",0.038
+"D276.6","D198.7",-1.57332385093116,0.374,NA,"Drift","Drift","Cold-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.374
+"D282.1","D198.7",-1.3460743123833,0.118,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.118
+"D296.9","D198.7",-1.773408895329,0.998,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.998
+"D303.5","D198.7",-1.62068336154156,0.764,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.764
+"D307.5","D198.7",-0.559112534140927,0.99,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.99
+"D308.7","D198.7",-0.265380198965802,0.796,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.796
+"D207.6","D205.3",-1.9060674242964,-0.946,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.946
+"D223.1","D205.3",-2.35606785602173,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.63
+"D224.9","D205.3",-3.93257720791771,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.506
+"D231.0","D205.3",3.1195316039716,NA,"Heterogenous selection",NA,"Heterogenous selection","Warm-Cold","LGS","Heterogenous (biotic) selection","Deterministic",-0.996
+"D243.9","D205.3",-5.057605335166,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.982
+"D245.1","D205.3",-2.17887110990831,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.782
+"D259.9","D205.3",-1.83669415250914,-0.218,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.218
+"D261.2","D205.3",-1.15235471745489,-0.504,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.504
+"D271.1","D205.3",-2.57115746619243,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.322
+"D275.0","D205.3",-1.13338376078269,-0.848,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.848
+"D276.6","D205.3",-2.0034977152529,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.124
+"D282.1","D205.3",-2.09529309155295,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.91
+"D296.9","D205.3",-0.633296703752524,1,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",1
+"D303.5","D205.3",-1.60851362399389,0.94,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.94
+"D307.5","D205.3",1.91069001295387,1,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",1
+"D308.7","D205.3",-0.395347359797563,0.97,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.97
+"D223.1","D207.6",-3.4406752287288,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.834
+"D224.9","D207.6",-3.35250863794845,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.9
+"D231.0","D207.6",-2.49967224479142,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.772
+"D243.9","D207.6",-3.27830700064566,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.832
+"D245.1","D207.6",-3.49276988287714,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.814
+"D259.9","D207.6",-3.18170819446877,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.888
+"D261.2","D207.6",-2.61380998282839,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.912
+"D271.1","D207.6",-2.65798505627494,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.942
+"D275.0","D207.6",-2.92333329180482,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.602
+"D276.6","D207.6",-1.85082232745296,-0.136,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",-0.136
+"D282.1","D207.6",-1.9484111798893,0.02,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.02
+"D296.9","D207.6",-2.14829198190529,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.802
+"D303.5","D207.6",-2.58067514105116,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.456
+"D307.5","D207.6",-2.52479685176632,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.816
+"D308.7","D207.6",-1.08784540142887,0.522,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.522
+"D224.9","D223.1",-4.15582109321446,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.085
+"D231.0","D223.1",-2.42217904026689,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.998
+"D243.9","D223.1",-4.04480462186375,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.00800000000000001
+"D245.1","D223.1",-3.87021926038898,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.434
+"D259.9","D223.1",-1.9902306112769,-0.496,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.496
+"D261.2","D223.1",-4.3073286386568,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.64
+"D271.1","D223.1",-2.3784592293542,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.146
+"D275.0","D223.1",-2.43596284235275,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.746
+"D276.6","D223.1",-1.80977670829602,0.142,NA,"Drift","Drift","Cold-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.142
+"D282.1","D223.1",-1.33157873315054,0.672,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.672
+"D296.9","D223.1",-1.66775580021019,1,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",1
+"D303.5","D223.1",-2.45406615045646,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.78
+"D307.5","D223.1",-1.09924254813693,0.996,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.996
+"D308.7","D223.1",-1.41934455317858,0.874,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.874
+"D231.0","D224.9",-1.73231145801258,-0.796,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.796
+"D243.9","D224.9",-3.21674157447057,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.46
+"D245.1","D224.9",-3.10128458438688,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.032
+"D259.9","D224.9",-1.62531360788322,-0.624,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.624
+"D261.2","D224.9",-3.05271427535445,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.894
+"D271.1","D224.9",-3.07483482567651,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.666
+"D275.0","D224.9",-1.42374856491437,-0.516,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.516
+"D276.6","D224.9",-1.86851346939288,0.186,NA,"Drift","Drift","Cold-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.186
+"D282.1","D224.9",-1.20855003257565,0.64,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.64
+"D296.9","D224.9",-1.76746986207867,0.998,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.998
+"D303.5","D224.9",-2.85779066749479,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.958
+"D307.5","D224.9",-2.58871783292202,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",1
+"D308.7","D224.9",-1.7836807276505,0.964,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.964
+"D243.9","D231.0",-0.779946417920458,-0.974,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Cold","LGS","Stochastic","Stochastic",-0.974
+"D245.1","D231.0",-2.33507850357974,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.91
+"D259.9","D231.0",-1.56040606803377,-0.784,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.784
+"D261.2","D231.0",-2.94363454854142,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","LGS","Homogenous (abiotic) selection","Deterministic",-0.824
+"D271.1","D231.0",-0.927582771118303,-0.77,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.77
+"D275.0","D231.0",-1.97842297757774,-0.818,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.818
+"D276.6","D231.0",-1.95195191574694,-0.166,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",-0.166
+"D282.1","D231.0",-1.63010543838581,0.198,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.198
+"D296.9","D231.0",-1.96420487224164,0.9,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.9
+"D303.5","D231.0",-2.80152670648838,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.536
+"D307.5","D231.0",-1.65718804047729,0.804,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.804
+"D308.7","D231.0",-1.42086781751361,0.549,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.549
+"D245.1","D243.9",-3.73395583336647,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.052
+"D259.9","D243.9",-2.20912186527644,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.258
+"D261.2","D243.9",-3.72396649327915,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.328
+"D271.1","D243.9",-3.02833731465863,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",0.27
+"D275.0","D243.9",-2.66851690775516,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.656
+"D276.6","D243.9",-1.82477401223841,0.132,NA,"Drift","Drift","Cold-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.132
+"D282.1","D243.9",-1.54949590567475,0.726,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.726
+"D296.9","D243.9",-1.48947614025313,1,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",1
+"D303.5","D243.9",-2.13698562334712,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.83
+"D307.5","D243.9",-0.89135642933877,1,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",1
+"D308.7","D243.9",-1.59539075158348,0.918,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.918
+"D259.9","D245.1",-2.41954589382817,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.226
+"D261.2","D245.1",-3.77116149607452,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.628
+"D271.1","D245.1",-3.4375851014659,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.206
+"D275.0","D245.1",-2.83189755080434,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.664
+"D276.6","D245.1",-1.9245216409919,0.264,NA,"Drift","Drift","Cold-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.264
+"D282.1","D245.1",-1.58616195819706,0.598,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.598
+"D296.9","D245.1",-1.9380429642398,0.996,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.996
+"D303.5","D245.1",-2.50545370478363,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.724
+"D307.5","D245.1",-2.23410459566049,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.996
+"D308.7","D245.1",-1.27930421635283,0.868,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.868
+"D261.2","D259.9",-1.56522210977644,-0.914,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.914
+"D271.1","D259.9",-1.49925381973314,-0.61,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.61
+"D275.0","D259.9",-1.89237765471058,-0.424,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.424
+"D276.6","D259.9",-1.95032342991423,-0.042,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",-0.042
+"D282.1","D259.9",-1.87943918478702,0.481,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.481
+"D296.9","D259.9",-2.20539882369444,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.97
+"D303.5","D259.9",-2.97431793151365,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.812
+"D307.5","D259.9",-2.31757429359209,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.968
+"D308.7","D259.9",-1.45856314216938,0.802,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.802
+"D271.1","D261.2",-3.04719945365402,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","LGS","Homogenous (abiotic) selection","Deterministic",-0.918
+"D275.0","D261.2",-1.8299490970619,-0.44,NA,"Drift","Drift","Warm-Warm","LGS","Stochastic","Stochastic",-0.44
+"D276.6","D261.2",-2.01640952546157,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.026
+"D282.1","D261.2",-1.89273217030915,0.34,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.34
+"D296.9","D261.2",-2.10925390047394,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.96
+"D303.5","D261.2",-2.81524590817877,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.752
+"D307.5","D261.2",-2.37916538181798,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.962
+"D308.7","D261.2",-1.5251611671527,0.844,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.844
+"D275.0","D271.1",-1.27528521227107,-0.618,NA,"Drift","Drift","Warm-Cold","LGS","Stochastic","Stochastic",-0.618
+"D276.6","D271.1",-2.1558719400245,NA,"Homogenous selection",NA,"Homogenous selection","Cold-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.044
+"D282.1","D271.1",-1.55405926503167,0.338,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.338
+"D296.9","D271.1",-1.94774396456135,0.992,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.992
+"D303.5","D271.1",-2.65949484365565,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.96
+"D307.5","D271.1",-1.67591965633236,0.996,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.996
+"D308.7","D271.1",-1.04629524320113,0.964,NA,"Dispersal limitation and drift","Dispersal limitation and drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",0.964
+"D276.6","D275.0",-1.79279714700265,-0.174,NA,"Drift","Drift","Warm-Cold","Pre-LGS:LGS","Stochastic","Stochastic",-0.174
+"D282.1","D275.0",-1.52489479494212,0.116,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.116
+"D296.9","D275.0",-1.9662716369534,0.904,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.904
+"D303.5","D275.0",-2.6593950185058,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.762
+"D307.5","D275.0",-2.03514593387611,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS:LGS","Homogenous (abiotic) selection","Deterministic",0.89
+"D308.7","D275.0",-1.45505793999781,0.744,NA,"Drift","Drift","Warm-Warm","Pre-LGS:LGS","Stochastic","Stochastic",0.744
+"D282.1","D276.6",-1.36405185265163,-0.966,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Cold","Pre-LGS","Stochastic","Stochastic",-0.966
+"D296.9","D276.6",-1.20560829626686,-0.99,NA,"Homogenizing dispersal","Homogenizing dispersal","Warm-Cold","Pre-LGS","Stochastic","Stochastic",-0.99
+"D303.5","D276.6",-2.1348193777518,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Cold","Pre-LGS","Homogenous (abiotic) selection","Deterministic",-0.816
+"D307.5","D276.6",-1.06286030573053,-0.308,NA,"Drift","Drift","Warm-Cold","Pre-LGS","Stochastic","Stochastic",-0.308
+"D308.7","D276.6",-1.43403676633902,0.596,NA,"Drift","Drift","Warm-Cold","Pre-LGS","Stochastic","Stochastic",0.596
+"D296.9","D282.1",-2.03742531894369,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS","Homogenous (abiotic) selection","Deterministic",-0.998
+"D303.5","D282.1",-3.0082424972899,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS","Homogenous (abiotic) selection","Deterministic",-0.886
+"D307.5","D282.1",-3.25912503672103,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS","Homogenous (abiotic) selection","Deterministic",-0.606
+"D308.7","D282.1",-1.74490276195455,0.144,NA,"Drift","Drift","Warm-Warm","Pre-LGS","Stochastic","Stochastic",0.144
+"D303.5","D296.9",-1.35526281347375,-0.932,NA,"Drift","Drift","Warm-Warm","Pre-LGS","Stochastic","Stochastic",-0.932
+"D307.5","D296.9",-0.925096996313323,0.012,NA,"Drift","Drift","Warm-Warm","Pre-LGS","Stochastic","Stochastic",0.012
+"D308.7","D296.9",-1.57711018131831,0.94,NA,"Drift","Drift","Warm-Warm","Pre-LGS","Stochastic","Stochastic",0.94
+"D307.5","D303.5",-1.33195300192711,-0.538,NA,"Drift","Drift","Warm-Warm","Pre-LGS","Stochastic","Stochastic",-0.538
+"D308.7","D303.5",-1.98327705920919,0.176,NA,"Drift","Drift","Warm-Warm","Pre-LGS","Stochastic","Stochastic",0.176
+"D308.7","D307.5",-3.16435823825385,NA,"Homogenous selection",NA,"Homogenous selection","Warm-Warm","Pre-LGS","Homogenous (abiotic) selection","Deterministic",0.112
