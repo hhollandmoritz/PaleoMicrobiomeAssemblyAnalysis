@@ -70,6 +70,9 @@ transform_betaNTI <- function(betaNTI_fp = here("outputs", "weighted_bNTI.csv"),
 betaNTI_all <- transform_betaNTI(betaNTI_fp = here("outputs", "weighted_bNTI.csv"),
                                  sample_metadata = input_all$sample_metadata)
 
+betaNTI <- read_csv(file = here("outputs", "weighted_bNTI.csv")) %>%
+  rename(SampleID = 1) %>%
+  column_to_rownames(var = "SampleID")
 # # Create a long-form dummy data frame to combine results
 # samp.df <- data.frame(Site1 = colnames(betaNTI_sing), Site2 = rownames(betaNTI_sing))
 # 
@@ -102,9 +105,13 @@ rownames(RCBC) <- names(input_all$otu_table[-1])
 #### ====================================================================== ####
 # All comparisons within site
 betaNTI_all_filt <- betaNTI_all %>%
-  mutate(ComparisonType = paste0(`Temperature condition.Site1`, "-", `Temperature condition.Site2`)) %>%
-  mutate(ComparisonType = ifelse(ComparisonType == "Cold-Warm", "Warm-Cold", ComparisonType)) %>%
-  select(Site1, Site2, BetaNTI, Assembly_Process, ComparisonType) %>%
+  mutate(TempConditionType = paste0(`Temperature condition.Site1`, "-", `Temperature condition.Site2`)) %>%
+  mutate(TempConditionType = ifelse(TempConditionType == "Cold-Warm", "Warm-Cold", TempConditionType)) %>%
+  mutate(EpochType = case_when(`Climate epoch.Site1` == `Climate epoch.Site2` ~ `Climate epoch.Site1`,
+                               .default = paste0(`Climate epoch.Site1`, ":", `Climate epoch.Site2`))) %>%
+  # Filter out Pre-LGS:Holocene comparisons because it violates rules of time
+  filter(EpochType != "Pre-LGS:Holocene") %>%
+  select(Site1, Site2, BetaNTI, Assembly_Process, ends_with("Type")) %>%
   mutate(Assembly_Process_expl = case_when(Assembly_Process == "Homogenous selection" ~ "Homogenous (abiotic) selection",
                                            Assembly_Process == "Heterogenous selection" ~ "Heterogenous (biotic) selection", 
                                            Assembly_Process == "Stochastic" ~ "Stochastic"))
@@ -165,7 +172,7 @@ nrow(RCBC.lf) == ncol(combn(nrow(input_all$sample_metadata), 2))
 
 #' Create a table with betaNTI and rcbc results combined
 #### ====================================================================== ####
-betanull.lf <- full_join(betaNTI.lf %>%
+betanull.lf <- left_join(betaNTI.lf %>%
                            mutate(Assembly_Process = ifelse(Assembly_Process == 
                                                               "Stochastic",
                                                             NA, Assembly_Process)),
