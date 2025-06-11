@@ -16,6 +16,7 @@
 
 #+ include=FALSE
 # some setup options for outputing markdown files; feel free to ignore these
+knitr::opts_knit$set(base.dir = 'knitdocs')
 knitr::opts_chunk$set(eval = TRUE, 
                       echo = TRUE,
                       include = TRUE, 

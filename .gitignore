@@ -3,5 +3,5 @@
 .RData
 .Ruserdata
 *.Rproj
-figures
+#figures
 00_raw_data
