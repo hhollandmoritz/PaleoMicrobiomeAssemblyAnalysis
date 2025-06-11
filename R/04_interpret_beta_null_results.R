@@ -10,6 +10,10 @@
 #'  4. Do those processes differ in different Climate Epochs?
 #'  Bonus: Are any other factors related to assembly processes?
 
+#' #### How does assembly analysis work?
+#' Find out more at this link: [SlideShow](https://docs.google.com/presentation/d/1BSLtMNZZrXxR9Nk0GER2RBBGPU0I1v4zAgnr9jylAQw/edit?usp=sharing)
+
+
 #+ include=FALSE
 # some setup options for outputing markdown files; feel free to ignore these
 knitr::opts_chunk$set(eval = TRUE, 
@@ -59,7 +63,6 @@ assembly_labels <- assembly_levels
 colour_assembly <- c("#521168", "#8e318f","#BD4D0C","#FF8000", "#FADBAC") # purple/orange
 fill_assembly <- colour_assembly
 #### ====================================================================== ####
-
 
 
 

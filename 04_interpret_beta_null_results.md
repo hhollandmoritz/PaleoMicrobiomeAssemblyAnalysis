@@ -8,6 +8,8 @@ and analyses on them. It has been knit into a notebook for ease of interpretatio
  3. What assembly processes drive cold to warm transitions?
  4. Do those processes differ in different Climate Epochs?
  Bonus: Are any other factors related to assembly processes?
+#### How does assembly analysis work?
+Find out more at this link: [SlideShow](https://docs.google.com/presentation/d/1BSLtMNZZrXxR9Nk0GER2RBBGPU0I1v4zAgnr9jylAQw/edit?usp=sharing)
 
 
 
