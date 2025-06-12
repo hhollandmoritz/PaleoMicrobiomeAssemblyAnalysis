@@ -16,7 +16,6 @@
 
 #+ include=FALSE
 # some setup options for outputing markdown files; feel free to ignore these
-knitr::opts_knit$set(base.dir = 'knitdocs')
 knitr::opts_chunk$set(eval = TRUE, 
                       echo = TRUE,
                       include = TRUE, 
@@ -77,6 +76,8 @@ fill_assembly <- colour_assembly
 
 # Read in assembly analysis results
 betanull.lf <- read_csv(file = paste0(outputs.fp, "/betanull.lf.csv"))
+betanull_consecutive.lf <- read_csv(file = paste0(outputs.fp, "/betanull.consecutive.lf.csv"))
+
 
 # Change variables into a factors
 betanull.lf <- betanull.lf %>%
@@ -96,6 +97,26 @@ betanull.lf <- betanull.lf %>%
                                               "Homogenizing dispersal",
                                               "Dispersal limitation and drift",
                                               "Drift")))
+
+# Change variables into a factors
+betanull_consecutive.lf <- betanull_consecutive.lf %>%
+  mutate(across(starts_with("TempCondition"), ~ factor(.x, 
+                                                       levels = c("Cold-Cold", 
+                                                                  "Warm-Warm", 
+                                                                  "Warm-Cold")))) %>%
+  mutate(EpochType = factor(EpochType, 
+                            levels = c("Holocene", 
+                                       "LGS:Holocene", 
+                                       "LGS", 
+                                       "Pre-LGS:LGS", 
+                                       "Pre-LGS"))) %>%
+  mutate(Assembly_Process = factor(Assembly_Process, 
+                                   levels = c("Homogenous selection",
+                                              "Heterogenous selection",
+                                              "Homogenizing dispersal",
+                                              "Dispersal limitation and drift",
+                                              "Drift")))
+
 #'  ### Question 1: What assembly processes predominate in these paleo-microbiome samples?
 
 #+ eval=TRUE
@@ -262,8 +283,164 @@ epochtemptype.plot.prop
 #' - With the exception of the Pre-LGS:LGS transition, cold-cold transitions are very strongly shaped by homogenizing selection, much more so than the warm-warm and cold-warm transitions in the same epoch.
 #'
 #'
-#'
-#'
+
+#' ## How do results change when we restrict to only consecutive comparisons?
+#' 
+#+ eval=TRUE
+# Proportions across all samples
+betanull_consecutive.lf %>%
+  select(Site1, Site2, BetaNTI, RCBC, Assembly_Process) %>%
+  group_by(Assembly_Process) %>%
+  tally() %>%
+  mutate(Total = sum(n),
+         Percent = round(100*n/Total, digits = 2)) %>%
+  arrange(desc(Percent)) %>% knitr::kable()
+
+#' - largely the same
+#' ### How do the assembly processes change through time when only consecutive times are considered?
+
+epochtemptype.plot.prop.df <- betanull_consecutive.lf %>%
+  select(Site1, Site2, Assembly_Process, EpochType, TempConditionType, AvgDepth, AvgDepth.Site1) %>%
+  mutate(DepthRange = paste0(round(AvgDepth, 1), "-", round(AvgDepth.Site1, 1)),
+         DepthRange = fct_reorder(DepthRange, AvgDepth)) %>%
+  group_by(DepthRange, EpochType, TempConditionType, Assembly_Process) %>%
+  tally() %>% 
+  ungroup() %>%
+  mutate(DescreteDepth = fct_rev(DepthRange))
+
+temperatureinfo <- epochtemptype.plot.prop.df %>% 
+  select(DescreteDepth, EpochType, TempConditionType, n) %>%
+  distinct()
+
+#+ eval =TRUE
+epochsummary.prop.plot.consec <- ggplot(epochtemptype.plot.prop.df, aes(x = EpochType)) +
+  geom_bar( aes(fill = Assembly_Process), position = "fill") +
+  guides(fill = guide_legend(nrow = 2)) + 
+  scale_fill_manual(name = "Assembly Process", values = fill_assembly, 
+                    breaks = assembly_levels, 
+                    labels = assembly_labels) +
+  scale_y_continuous(expand = c(0,0), labels = scales::percent) +
+  scale_x_discrete(expand = c(0,0)) +
+  #coord_cartesian(expand = c(0,0)) +
+  ylab("") +
+  theme_bw() + 
+  theme(axis.title.y = element_text(size = rel(2)),
+        axis.text.y = element_text(size = rel(1.5)),
+        axis.title.x = element_blank(),
+        panel.spacing.y =  unit(1, "lines"),
+        panel.spacing.x =  unit(0, "lines"),
+        axis.ticks.x = element_blank(),
+        strip.text.x = element_blank(),
+        strip.text.y = element_text(size = rel(1)),
+        strip.placement = "outside",
+        legend.position = "bottom")
+
+ggsave(epochsummary.prop.plot.consec, 
+       filename = paste0(figures.fp, "/consecutive_epoch_prop.png"),
+       width = 5, height = 12, dpi = 400)
+epochsummary.prop.plot.consec
+
+#' - Now that we have restricted to only consecutive comparisons, the increasing influence of drift through time has become much reduced, and less linear. This is perhaps further evidence that the that signal was due to comparing communities that were very old in time to those that were very new. 
+#' - Keep in mind that although these are reported as percentages, the total number of comparisons is very different among time periods. The Epoch transitions now represent only 1 sample (see below for an unscaled plot).  
+#+ eval =TRUE, echo=FALSE
+epochtemptype.plot.prop.df %>% 
+  group_by(EpochType) %>% tally() %>%
+  rename(`Number of Comparisons` = n) %>%
+  knitr::kable()
+#' - What we see here is that selection is still prominent in the dataset but that the Holocene is particularly marked by selection, while the LGS and pre-LGS are much more variable.
+#+ eval=TRUE,
+epochsummary.prop.plot.consec  +
+  geom_bar( aes(fill = Assembly_Process)) +
+  scale_y_continuous(expand = c(0,0)) + ylab("Count")
+
+
+#' - If we plot the same data along the depth of the core with the temperature transitions, we can see that during the LGS these sometimes, but not always correspond to temperature changes. 
+#' 
+#+ eval =TRUE, fig.dim = c(6, 12)
+epochtemptype.plot.consec <- ggplot(epochtemptype.plot.prop.df, aes(x = DescreteDepth, y = n)) +
+  geom_bar(stat = "identity", aes(fill = Assembly_Process),
+           linewidth = 5, # temperature border thickness
+           width = 1) + # bar thickness
+  geom_errorbar(data = temperatureinfo, 
+            aes(y = n, ymax = n*0.02, ymin = n*0.02, color = TempConditionType),
+                linewidth = 2, width = 1) +
+  # geom_text(aes(label = TempConditionType, 
+  #               y = n*0.2, color = TempConditionType),
+  #           vjust = 1) +
+  coord_flip() +
+  facet_grid(EpochType~., drop = TRUE, scales = "free", space = "free_y") +
+  scale_fill_manual(name = "Assembly Process", values = fill_assembly, 
+                    breaks = assembly_levels, 
+                    labels = assembly_labels) +
+  guides(fill = guide_legend(nrow = 5)) + 
+  scale_color_manual(name = "Temperature Transition", values = c("blue", "red", "black"),
+                    breaks = c("Cold-Cold", "Warm-Warm", "Warm-Cold"),
+                    labels = c("Cold-Cold", "Warm-Warm", "Warm-Cold")) +
+  ylab("") + 
+  xlab("Community Transitions (by increasing depth)") +
+  scale_y_discrete(expand = c(0,0)) +
+  scale_x_discrete(expand = c(0,0)) +
+  theme_bw() + 
+  theme(axis.title.y = element_text(size = rel(2)),
+        axis.text.y = element_text(size = rel(1)),
+        axis.text.x = element_blank(),
+        panel.spacing.y =  unit(0, "lines"),
+        panel.spacing.x =  unit(0, "lines"),
+        axis.ticks.x = element_blank(),
+        strip.placement = "outside",
+        legend.title.position = "top",
+        legend.position = "right")
+
+ggsave(epochtemptype.plot.consec, 
+       filename = paste0(figures.fp, "/consecutive_epoch.png"),
+       width = 5, height = 12, dpi = 400)
+epochtemptype.plot.consec
+
+#' ### How do the assembly processes with temperature when only consecutive times are considered?
+
+#+ eval = TRUE
+temptype.plot.prop.consec <- ggplot(epochtemptype.plot.prop.df, aes(x = TempConditionType)) +
+  geom_bar( aes(fill = Assembly_Process), position = "fill") +
+  guides(fill = guide_legend(nrow = 2)) + 
+  scale_fill_manual(name = "Assembly Process", values = fill_assembly, 
+                    breaks = assembly_levels, 
+                    labels = assembly_labels) +
+  scale_y_continuous(expand = c(0,0), labels = scales::percent) +
+  scale_x_discrete(expand = c(0,0)) +
+  #coord_cartesian(expand = c(0,0)) +
+  ylab("") +
+  theme_bw() + 
+  theme(axis.title.y = element_text(size = rel(2)),
+        axis.text.y = element_text(size = rel(1.5)),
+        axis.title.x = element_blank(),
+        panel.spacing.y =  unit(1, "lines"),
+        panel.spacing.x =  unit(0, "lines"),
+        axis.ticks.x = element_blank(),
+        strip.text.x = element_blank(),
+        strip.text.y = element_text(size = rel(1)),
+        strip.placement = "outside",
+        legend.position = "bottom")
+
+ggsave(temptype.plot.prop.consec, 
+       filename = paste0(figures.fp, "/consecutive_temptype.png"),
+       width = 4, height = 12, dpi = 400)
+temptype.plot.prop.consec
+#' 
+#' 
+#' 
+temptype.epoch.plot.prop.consec <- temptype.plot.prop.consec + 
+  facet_grid(~EpochType, scales = "free_x", space = "free_x") +
+  theme(strip.text.x = element_text(size = 10),
+        panel.spacing.x =  unit(0.5, "lines"))
+ggsave(temptype.epoch.plot.prop.consec, 
+       filename = paste0(figures.fp, "/consecutive_temptype_splitbyepoch.png"),
+       width = 4, height = 12, dpi = 400)
+temptype.epoch.plot.prop.consec
+#' - *Cold-cold*: We see that selection is more prominent in cold-cold transitions generally, although in the Holocene, nearly all transitions are dominated by selection regardless of temperature transition
+#' - *Warm-Warm* and *Warm-Cold*: In the epoch's prior to the Holocene there are greater stochastic processes when a warm transition is involved (either warm-warm or warm-cold transition). More dispersal, and drift dominate. However there is still an appreciable selective signal even in these transitions, although the selection is not consistent between periods (Warm-Warm has selection in the pre-LGS time, Warm-Cold has selection in the LGS). 
+#' 
+#' 
+#' 
 #' ### Bonus: Are any other factors related to assembly processes?
 #' #### Dust differences and Assembly process
 #+ eval=TRUE
@@ -398,7 +575,8 @@ ggplot(CryoDiff.betanull,
 #' ## Concluding Thoughts
 #' - We see strong evidence of abiotic selective processes driving the structure of these communities. Ecological drift is a second dominant assembly process. There is little evidence of biotic structuring within the community.
 #' - This doesn't mean that there is no biotic structuring, just that it doesn't show up as a sister-taxa competition. Other forms of biotic structuring, such as food-web type structuring cannot be ruled out via this method. What this does imply is that the conditions at hand, strongly favor particular sets of clades. 
-#' - Ecological drift increases with time. This is hard to attribute. We cannot rule out the influence of relic DNA, or active entrained cells in this pattern.  However one piece of evidence against active entrained cells is a lack of "dispersal limitation with drift", which I would expect to see more of if cells were actively growing in these ice cores. What is clear is that there are stronger abiotic selective pressures nearer the top of the core.
+#' - Ecological drift increases with time, although when the analysis is restricted to consecutive comparisons only, this increase is less linear. This is hard to attribute. We cannot rule out the influence of relic DNA, or active entrained cells in this pattern.  However one piece of evidence against active entrained cells is a lack of "dispersal limitation with drift", which I would expect to see more of if cells were actively growing in these ice cores. What is clear is that there are stronger abiotic selective pressures nearer the top of the core.
 #' - Climate epoch has a stronger influence on assembly process than temperature variation within an epoch. This may be due to different environmental/ecological forces being at play during each epoch. For example, climatic shifts, deposition shifts, or different sources of microbial communities. 
-#' - Microbial communities are significantly different in warm vs. cold periods. Interestingly cold seems to impart a greater selective pressure than warmth. This may align with the role of photorophs in structuring the community, since colder years likely include less available light for phototrophs which could have downstream selective pressures on the community. 
+#' - In particular, the Holocene is a very selection-dominated time, despite the capture of multiple and Warm-Warm, Warm-Cold transitions. In the LGS, by contrast, Warm-Warm and Warm-Cold transitions are dominated by more stochastic processes, drift, and high dispersal. A similar pattern is seen in the Pre-LGS period, but the Warm-cold/Warm-Warm transitions are not consistent between them in amount of selection at play. 
+#' - Microbial communities are significantly different in warm vs. cold periods. Interestingly cold seems to impart a greater selective pressure than warmth (though this is really only apparent prior to the Holocene). This may align with the role of photorophs in structuring the community, since colder years likely include less available light for phototrophs which could have downstream selective pressures on the community. 
 

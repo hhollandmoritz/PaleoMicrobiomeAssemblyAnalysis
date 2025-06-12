@@ -103,6 +103,17 @@ rownames(RCBC) <- names(input_all$otu_table[-1])
 # Filter out comparisons we won't use
 # Placeholder - so far planning to use all comparisons
 #### ====================================================================== ####
+# Since we're working with depths, let's make a list of all consecutive comparisons and only filter those out
+Ranked_depth.df <- input_all$sample_metadata %>%
+  select(SampleID, AvgDepth) %>%
+  mutate(DepthRank = rank(AvgDepth),
+         SampleID2 = lead(SampleID)) %>%
+  rename(Site2 = SampleID,
+         Site1 = SampleID2) # this is reversed because of the way Site1 and 2 are in the betaNTI all
+
+
+
+
 # All comparisons within site
 betaNTI_all_filt <- betaNTI_all %>%
   mutate(TempConditionType = paste0(`Temperature condition.Site1`, "-", `Temperature condition.Site2`)) %>%
@@ -115,6 +126,19 @@ betaNTI_all_filt <- betaNTI_all %>%
   mutate(Assembly_Process_expl = case_when(Assembly_Process == "Homogenous selection" ~ "Homogenous (abiotic) selection",
                                            Assembly_Process == "Heterogenous selection" ~ "Heterogenous (biotic) selection", 
                                            Assembly_Process == "Stochastic" ~ "Stochastic"))
+
+
+# All comparisons within site
+betaNTI_consecutive_only <- betaNTI_all %>%
+  mutate(TempConditionType = paste0(`Temperature condition.Site1`, "-", `Temperature condition.Site2`)) %>%
+  mutate(TempConditionType = ifelse(TempConditionType == "Cold-Warm", "Warm-Cold", TempConditionType)) %>%
+  mutate(EpochType = case_when(`Climate epoch.Site1` == `Climate epoch.Site2` ~ `Climate epoch.Site1`,
+                               .default = paste0(`Climate epoch.Site1`, ":", `Climate epoch.Site2`))) %>%
+  mutate(Assembly_Process_expl = case_when(Assembly_Process == "Homogenous selection" ~ "Homogenous (abiotic) selection",
+                                           Assembly_Process == "Heterogenous selection" ~ "Heterogenous (biotic) selection", 
+                                           Assembly_Process == "Stochastic" ~ "Stochastic")) %>%
+  right_join(Ranked_depth.df, by = c("Site1", "Site2")) %>%
+  filter(!is.na(Site1))
 
 #### ====================================================================== ####
 # Plot comparisons
@@ -129,7 +153,7 @@ betaNTI_all_filt <- betaNTI_all %>%
 #### ====================================================================== ####
 # Transform betaNTI and RCBC results to long format
 #### ====================================================================== ####
-betaNTI.lf <- betaNTI_all_filt
+betaNTI.lf <- betaNTI_all
 
 # Sanity check, do we have the right number of rows?
 # There are 528 combinations (without self-comparisons) of 33 samples
@@ -172,7 +196,7 @@ nrow(RCBC.lf) == ncol(combn(nrow(input_all$sample_metadata), 2))
 
 #' Create a table with betaNTI and rcbc results combined
 #### ====================================================================== ####
-betanull.lf <- left_join(betaNTI.lf %>%
+betanull_consecutive.lf <- left_join(betaNTI_consecutive_only %>%
                            mutate(Assembly_Process = ifelse(Assembly_Process == 
                                                               "Stochastic",
                                                             NA, Assembly_Process)),
@@ -197,6 +221,32 @@ betanull.lf <- left_join(betaNTI.lf %>%
                        NA, RCBC)) %>%
   dplyr::select(Site1, Site2, BetaNTI, RCBC, Assembly_Process.BetaNTI, 
          Assembly_Process.RCBC, Assembly_Process, everything())
+
+betanull.lf <- left_join(betaNTI_all_filt %>%
+                                       mutate(Assembly_Process = ifelse(Assembly_Process == 
+                                                                          "Stochastic",
+                                                                        NA, Assembly_Process)),
+                                     RCBC.lf, by = c("Site1", "Site2")) %>% 
+  mutate(Assembly_Process = coalesce(Assembly_Process.x, Assembly_Process.y),
+         StochasticDeterministic = ifelse(grepl("selection", Assembly_Process), 
+                                          "Deterministic",
+                                          "Stochastic"),
+         Assembly_Process = factor(Assembly_Process, 
+                                   levels = c("Homogenous selection",
+                                              "Heterogenous selection",
+                                              "Homogenizing dispersal", 
+                                              "Dispersal limitation and drift", 
+                                              "Drift"))) %>%
+  rename(Assembly_Process.RCBC = Assembly_Process.y,
+         Assembly_Process.BetaNTI = Assembly_Process.x) %>%
+  mutate(Assembly_Process.RCBC = ifelse(grepl("selection", 
+                                              Assembly_Process.BetaNTI), 
+                                        NA, Assembly_Process.RCBC),
+         RCBC.nona = RCBC,
+         RCBC = ifelse(grepl("selection", Assembly_Process.BetaNTI), 
+                       NA, RCBC)) %>%
+  dplyr::select(Site1, Site2, BetaNTI, RCBC, Assembly_Process.BetaNTI, 
+                Assembly_Process.RCBC, Assembly_Process, everything())
 
 # Sanity check, do we have the right number of rows?
 nrow(betanull.lf) == ncol(combn(nrow(input_all$sample_metadata), 2))
@@ -227,6 +277,11 @@ betanull.mat <- as.matrix(betanull.wf)
 #### ====================================================================== ####
 # # Data
 # assembly results in long format
+saveRDS(betanull_consecutive.lf, paste0(outputs.fp, "/betanull.consecutive.lf.RDS"))
+write.csv(betanull_consecutive.lf,
+          paste0(outputs.fp, "/betanull.consecutive.lf.csv"),
+          quote=TRUE, row.names = FALSE)
+
 saveRDS(betanull.lf, paste0(outputs.fp, "/betanull.lf.RDS"))
 write.csv(betanull.lf,
           paste0(outputs.fp, "/betanull.lf.csv"),
