@@ -1,7 +1,18 @@
-## Interpret Assembly Analysis results for Paleo Microbiome Project
+---
+output:
+ pdf_document:
+  toc: true
+ html_document:
+  toc: true
+header-includes:
+ - \usepackage{commonunicode}
+---
+## Interpret Assembly Analysis results for Paleo Microbiome Project 
 ***This step takes the output from 
 03_prepare_and_combine_assembly_analysis_results.R and runs initial figures 
 and analyses on them. It has been knit into a notebook for ease of interpretation***
+
+
 # Driving questions:
  1. What assembly processes predominate in these paleo-microbiome samples?
  2. What assembly processes characterize each Epoch, and the Epoch transitions?

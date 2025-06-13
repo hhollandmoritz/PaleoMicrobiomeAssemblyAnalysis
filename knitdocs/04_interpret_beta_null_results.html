@@ -115,6 +115,28 @@ section.footnotes {
 <div class="frontmatter">
 </div>
 <div class="body">
+<div id="TOC">
+<ul>
+<li><a href="#sec:interpret-assembly-analysis-results-for-paleo-microbiome-project">Interpret Assembly Analysis results for Paleo Microbiome Project</a></li>
+<li><a href="#chp:driving-questions">Driving questions:</a>
+<ul>
+<li><a href="#sec:read-in-data-not-included-in-setup-r">Read in data not included in <code>setup.R</code></a></li>
+<li><a href="#sec:question-1-what-assembly-processes-predominate-in-these-paleo-microbiome-samples">Question 1: What assembly processes predominate in these paleo-microbiome samples?</a></li>
+<li><a href="#sec:question-2-what-assembly-processes-characterize-each-epoch-and-the-epoch-transitions">Question 2: What assembly processes characterize each Epoch, and the Epoch transitions?</a></li>
+<li><a href="#sec:question-3-what-assembly-processes-characterize-temperature-transitions">Question 3: What assembly processes characterize temperature transitions</a></li>
+<li><a href="#sec:question-4-do-those-temperature-processes-differ-in-different-climate-epochs">Question 4: Do those temperature processes differ in different Climate Epochs?</a></li>
+<li><a href="#sec:how-do-results-change-when-we-restrict-to-only-consecutive-comparisons">How do results change when we restrict to only consecutive comparisons?</a>
+<ul>
+<li><a href="#sec:how-do-the-assembly-processes-change-through-time-when-only-consecutive-times-are-considered">How do the assembly processes change through time when only consecutive times are considered?</a></li>
+<li><a href="#sec:how-do-the-assembly-processes-with-temperature-when-only-consecutive-times-are-considered">How do the assembly processes with temperature when only consecutive times are considered?</a></li>
+<li><a href="#sec:bonus-are-any-other-factors-related-to-assembly-processes">Bonus: Are any other factors related to assembly processes?</a></li>
+</ul>
+</li>
+<li><a href="#sec:concluding-thoughts">Concluding Thoughts</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <h2 id="sec:interpret-assembly-analysis-results-for-paleo-microbiome-project">Interpret Assembly Analysis results for Paleo Microbiome Project</h2>
 <p><em><strong>This step takes the output from
 03_prepare_and_combine_assembly_analysis_results.R and runs initial figures
@@ -148,43 +170,39 @@ source(here(&quot;setup.R&quot;))
 ## 33 samples in otu_table
 ## Removing 179 OTUs with zero abundnace for any sample (after filtering): OTU_284, OTU_356, OTU_482, OTU_558, OTU_585, OTU_629, OTU_742, OTU_881, OTU_1025, OTU_1098, OTU_1325, OTU_1382, OTU_1441, OTU_1487, OTU_1500, OTU_1530, OTU_1551, OTU_1580, OTU_1586, OTU_1626, OTU_1628, OTU_1633, OTU_1653, OTU_1669, OTU_1713, OTU_1732, OTU_1743, OTU_1758, OTU_1779, OTU_1902, OTU_1908, OTU_1921, OTU_1922, OTU_1956, OTU_1967, OTU_1969, OTU_1975, OTU_1976, OTU_1980, OTU_1983, OTU_1989, OTU_1992, OTU_2013, OTU_2016, OTU_2034, OTU_2035, OTU_2037, OTU_2039, OTU_2042, OTU_2044, OTU_2045, OTU_2082, OTU_2100, OTU_2104, OTU_2106, OTU_2109, OTU_2116, OTU_2117, OTU_2175, OTU_2186, OTU_2188, OTU_2223, OTU_2233, OTU_2234, OTU_2241, OTU_2242, OTU_2247, OTU_2251, OTU_2254, OTU_2255, OTU_2256, OTU_2257, OTU_2291, OTU_2317, OTU_2320, OTU_2329, OTU_2332, OTU_2370, OTU_2382, OTU_2383, OTU_2386, OTU_2390, OTU_2403, OTU_2406, OTU_2408, OTU_2415, OTU_2416, OTU_2418, OTU_2420, OTU_2421, OTU_2463, OTU_2467, OTU_2493, OTU_2498, OTU_2501, OTU_2502, OTU_2504, OTU_2544, OTU_2552, OTU_2553, OTU_2555, OTU_2557, OTU_2585, OTU_2586, OTU_2587, OTU_2588, OTU_2589, OTU_2592, OTU_2593, OTU_2595, OTU_2596, OTU_2597, OTU_2598, OTU_2601, OTU_2608, OTU_2664, OTU_2666, OTU_2667, OTU_2692, OTU_2700, OTU_2702, OTU_2703, OTU_2704, OTU_2706, OTU_2709, OTU_2710, OTU_2711, OTU_2766, OTU_2770, OTU_2774, OTU_2785, OTU_2790, OTU_2800, OTU_2801, OTU_2822, OTU_2823, OTU_2825, OTU_2827, OTU_2829, OTU_2835, OTU_2883, OTU_2894, OTU_2899, OTU_2900, OTU_2902, OTU_2903, OTU_2904, OTU_2905, OTU_2921, OTU_2927, OTU_2931, OTU_2934, OTU_2936, OTU_2937, OTU_2938, OTU_2939, OTU_2940, OTU_2941, OTU_2942, OTU_2943, OTU_2948, OTU_2952, OTU_2971, OTU_2979, OTU_2981, OTU_2990, OTU_2998, OTU_3001, OTU_3002, OTU_3003, OTU_3008, OTU_3011, OTU_3023, OTU_3025, OTU_3026, OTU_3027, OTU_3029, OTU_3043, OTU_3052
 ## [1] &quot;Dropping taxa from the data because they are not present in the phylogeny:&quot;
-##  [1] &quot;OTU_41&quot;   &quot;OTU_101&quot;  &quot;OTU_384&quot;  &quot;OTU_443&quot;  &quot;OTU_526&quot;  &quot;OTU_600&quot;  &quot;OTU_651&quot; 
-##  [8] &quot;OTU_653&quot;  &quot;OTU_711&quot;  &quot;OTU_768&quot;  &quot;OTU_832&quot;  &quot;OTU_963&quot;  &quot;OTU_1039&quot; &quot;OTU_1089&quot;
-## [15] &quot;OTU_1107&quot; &quot;OTU_1127&quot; &quot;OTU_1283&quot; &quot;OTU_1289&quot; &quot;OTU_1366&quot; &quot;OTU_1459&quot; &quot;OTU_1472&quot;
-## [22] &quot;OTU_1686&quot; &quot;OTU_1692&quot; &quot;OTU_1697&quot; &quot;OTU_1815&quot; &quot;OTU_1875&quot; &quot;OTU_1889&quot; &quot;OTU_1944&quot;
-## [29] &quot;OTU_1995&quot; &quot;OTU_2014&quot; &quot;OTU_2015&quot; &quot;OTU_2020&quot; &quot;OTU_2072&quot; &quot;OTU_2160&quot; &quot;OTU_2216&quot;
-## [36] &quot;OTU_2261&quot; &quot;OTU_2277&quot; &quot;OTU_2288&quot; &quot;OTU_2300&quot; &quot;OTU_2305&quot; &quot;OTU_2343&quot; &quot;OTU_2360&quot;
-## [43] &quot;OTU_2362&quot; &quot;OTU_2367&quot; &quot;OTU_2373&quot; &quot;OTU_2391&quot; &quot;OTU_2393&quot; &quot;OTU_2411&quot; &quot;OTU_2472&quot;
-## [50] &quot;OTU_2473&quot; &quot;OTU_2541&quot; &quot;OTU_2542&quot; &quot;OTU_2551&quot; &quot;OTU_2623&quot; &quot;OTU_2628&quot; &quot;OTU_2631&quot;
-## [57] &quot;OTU_2642&quot; &quot;OTU_2657&quot; &quot;OTU_2677&quot; &quot;OTU_2678&quot; &quot;OTU_2707&quot; &quot;OTU_2732&quot; &quot;OTU_2735&quot;
-## [64] &quot;OTU_2746&quot; &quot;OTU_2767&quot; &quot;OTU_2780&quot; &quot;OTU_2784&quot; &quot;OTU_2787&quot; &quot;OTU_2788&quot; &quot;OTU_2791&quot;
-## [71] &quot;OTU_2796&quot; &quot;OTU_2865&quot; &quot;OTU_2890&quot; &quot;OTU_2893&quot; &quot;OTU_2945&quot; &quot;OTU_2978&quot; &quot;OTU_2982&quot;
-## [78] &quot;OTU_3007&quot; &quot;OTU_3020&quot; &quot;OTU_3038&quot; &quot;OTU_3051&quot; &quot;OTU_3054&quot;
+##  [1] &quot;OTU_41&quot;   &quot;OTU_101&quot;  &quot;OTU_384&quot;  &quot;OTU_443&quot;  &quot;OTU_526&quot;  &quot;OTU_600&quot;  &quot;OTU_651&quot;  &quot;OTU_653&quot; 
+##  [9] &quot;OTU_711&quot;  &quot;OTU_768&quot;  &quot;OTU_832&quot;  &quot;OTU_963&quot;  &quot;OTU_1039&quot; &quot;OTU_1089&quot; &quot;OTU_1107&quot; &quot;OTU_1127&quot;
+## [17] &quot;OTU_1283&quot; &quot;OTU_1289&quot; &quot;OTU_1366&quot; &quot;OTU_1459&quot; &quot;OTU_1472&quot; &quot;OTU_1686&quot; &quot;OTU_1692&quot; &quot;OTU_1697&quot;
+## [25] &quot;OTU_1815&quot; &quot;OTU_1875&quot; &quot;OTU_1889&quot; &quot;OTU_1944&quot; &quot;OTU_1995&quot; &quot;OTU_2014&quot; &quot;OTU_2015&quot; &quot;OTU_2020&quot;
+## [33] &quot;OTU_2072&quot; &quot;OTU_2160&quot; &quot;OTU_2216&quot; &quot;OTU_2261&quot; &quot;OTU_2277&quot; &quot;OTU_2288&quot; &quot;OTU_2300&quot; &quot;OTU_2305&quot;
+## [41] &quot;OTU_2343&quot; &quot;OTU_2360&quot; &quot;OTU_2362&quot; &quot;OTU_2367&quot; &quot;OTU_2373&quot; &quot;OTU_2391&quot; &quot;OTU_2393&quot; &quot;OTU_2411&quot;
+## [49] &quot;OTU_2472&quot; &quot;OTU_2473&quot; &quot;OTU_2541&quot; &quot;OTU_2542&quot; &quot;OTU_2551&quot; &quot;OTU_2623&quot; &quot;OTU_2628&quot; &quot;OTU_2631&quot;
+## [57] &quot;OTU_2642&quot; &quot;OTU_2657&quot; &quot;OTU_2677&quot; &quot;OTU_2678&quot; &quot;OTU_2707&quot; &quot;OTU_2732&quot; &quot;OTU_2735&quot; &quot;OTU_2746&quot;
+## [65] &quot;OTU_2767&quot; &quot;OTU_2780&quot; &quot;OTU_2784&quot; &quot;OTU_2787&quot; &quot;OTU_2788&quot; &quot;OTU_2791&quot; &quot;OTU_2796&quot; &quot;OTU_2865&quot;
+## [73] &quot;OTU_2890&quot; &quot;OTU_2893&quot; &quot;OTU_2945&quot; &quot;OTU_2978&quot; &quot;OTU_2982&quot; &quot;OTU_3007&quot; &quot;OTU_3020&quot; &quot;OTU_3038&quot;
+## [81] &quot;OTU_3051&quot; &quot;OTU_3054&quot;
 ## [1] &quot;Dropping tips from the tree because they are not present in the data:&quot;
-##   [1] &quot;OTU_1098&quot; &quot;OTU_1779&quot; &quot;OTU_2044&quot; &quot;OTU_2416&quot; &quot;OTU_2692&quot; &quot;OTU_2116&quot; &quot;OTU_2938&quot;
-##   [8] &quot;OTU_2382&quot; &quot;OTU_2942&quot; &quot;OTU_2291&quot; &quot;OTU_1976&quot; &quot;OTU_2971&quot; &quot;OTU_2979&quot; &quot;OTU_2117&quot;
-##  [15] &quot;OTU_3026&quot; &quot;OTU_1989&quot; &quot;OTU_2948&quot; &quot;OTU_2899&quot; &quot;OTU_356&quot;  &quot;OTU_1500&quot; &quot;OTU_1975&quot;
-##  [22] &quot;OTU_2082&quot; &quot;OTU_2904&quot; &quot;OTU_2016&quot; &quot;OTU_1902&quot; &quot;OTU_2587&quot; &quot;OTU_2939&quot; &quot;OTU_742&quot; 
-##  [29] &quot;OTU_2100&quot; &quot;OTU_1551&quot; &quot;OTU_2390&quot; &quot;OTU_3023&quot; &quot;OTU_1325&quot; &quot;OTU_2498&quot; &quot;OTU_2801&quot;
-##  [36] &quot;OTU_2589&quot; &quot;OTU_2900&quot; &quot;OTU_2706&quot; &quot;OTU_2790&quot; &quot;OTU_1713&quot; &quot;OTU_2247&quot; &quot;OTU_3043&quot;
-##  [43] &quot;OTU_2332&quot; &quot;OTU_2774&quot; &quot;OTU_2800&quot; &quot;OTU_2418&quot; &quot;OTU_3027&quot; &quot;OTU_2596&quot; &quot;OTU_1967&quot;
-##  [50] &quot;OTU_2504&quot; &quot;OTU_2785&quot; &quot;OTU_2704&quot; &quot;OTU_2553&quot; &quot;OTU_2601&quot; &quot;OTU_2241&quot; &quot;OTU_2109&quot;
-##  [57] &quot;OTU_2711&quot; &quot;OTU_2013&quot; &quot;OTU_2188&quot; &quot;OTU_2702&quot; &quot;OTU_2037&quot; &quot;OTU_2829&quot; &quot;OTU_2597&quot;
-##  [64] &quot;OTU_2981&quot; &quot;OTU_2883&quot; &quot;OTU_2251&quot; &quot;OTU_2595&quot; &quot;OTU_1983&quot; &quot;OTU_1530&quot; &quot;OTU_2039&quot;
-##  [71] &quot;OTU_2042&quot; &quot;OTU_2555&quot; &quot;OTU_2329&quot; &quot;OTU_3025&quot; &quot;OTU_3011&quot; &quot;OTU_1980&quot; &quot;OTU_2502&quot;
-##  [78] &quot;OTU_2320&quot; &quot;OTU_2034&quot; &quot;OTU_2664&quot; &quot;OTU_2952&quot; &quot;OTU_2415&quot; &quot;OTU_2242&quot; &quot;OTU_2557&quot;
-##  [85] &quot;OTU_1732&quot; &quot;OTU_1633&quot; &quot;OTU_2894&quot; &quot;OTU_2927&quot; &quot;OTU_2420&quot; &quot;OTU_585&quot;  &quot;OTU_3001&quot;
-##  [92] &quot;OTU_3008&quot; &quot;OTU_2710&quot; &quot;OTU_2825&quot; &quot;OTU_2223&quot; &quot;OTU_2403&quot; &quot;OTU_2035&quot; &quot;OTU_2552&quot;
-##  [99] &quot;OTU_2370&quot; &quot;OTU_1025&quot; &quot;OTU_1580&quot; &quot;OTU_1586&quot; &quot;OTU_1956&quot; &quot;OTU_1487&quot; &quot;OTU_2406&quot;
-## [106] &quot;OTU_2943&quot; &quot;OTU_558&quot;  &quot;OTU_1922&quot; &quot;OTU_2902&quot; &quot;OTU_2608&quot; &quot;OTU_1653&quot; &quot;OTU_2905&quot;
-## [113] &quot;OTU_881&quot;  &quot;OTU_2257&quot; &quot;OTU_2544&quot; &quot;OTU_2255&quot; &quot;OTU_2934&quot; &quot;OTU_1669&quot; &quot;OTU_2588&quot;
-## [120] &quot;OTU_2666&quot; &quot;OTU_2421&quot; &quot;OTU_2937&quot; &quot;OTU_2317&quot; &quot;OTU_2822&quot; &quot;OTU_1758&quot; &quot;OTU_2941&quot;
-## [127] &quot;OTU_1921&quot; &quot;OTU_2598&quot; &quot;OTU_2592&quot; &quot;OTU_2386&quot; &quot;OTU_2585&quot; &quot;OTU_2256&quot; &quot;OTU_2234&quot;
-## [134] &quot;OTU_2493&quot; &quot;OTU_2383&quot; &quot;OTU_2408&quot; &quot;OTU_284&quot;  &quot;OTU_2045&quot; &quot;OTU_2186&quot; &quot;OTU_2936&quot;
-## [141] &quot;OTU_2104&quot; &quot;OTU_1992&quot; &quot;OTU_1969&quot; &quot;OTU_2233&quot; &quot;OTU_3002&quot; &quot;OTU_2709&quot; &quot;OTU_2921&quot;
-## [148] &quot;OTU_2827&quot; &quot;OTU_2931&quot; &quot;OTU_2175&quot; &quot;OTU_2703&quot; &quot;OTU_482&quot;  &quot;OTU_629&quot;  &quot;OTU_2903&quot;
-## [155] &quot;OTU_2940&quot; &quot;OTU_2463&quot; &quot;OTU_2998&quot; &quot;OTU_2593&quot; &quot;OTU_2990&quot; &quot;OTU_2667&quot; &quot;OTU_2586&quot;
-## [162] &quot;OTU_2770&quot; &quot;OTU_2823&quot; &quot;OTU_2501&quot; &quot;OTU_1908&quot; &quot;OTU_2700&quot; &quot;OTU_1743&quot; &quot;OTU_2835&quot;
+##   [1] &quot;OTU_1098&quot; &quot;OTU_1779&quot; &quot;OTU_2044&quot; &quot;OTU_2416&quot; &quot;OTU_2692&quot; &quot;OTU_2116&quot; &quot;OTU_2938&quot; &quot;OTU_2382&quot;
+##   [9] &quot;OTU_2942&quot; &quot;OTU_2291&quot; &quot;OTU_1976&quot; &quot;OTU_2971&quot; &quot;OTU_2979&quot; &quot;OTU_2117&quot; &quot;OTU_3026&quot; &quot;OTU_1989&quot;
+##  [17] &quot;OTU_2948&quot; &quot;OTU_2899&quot; &quot;OTU_356&quot;  &quot;OTU_1500&quot; &quot;OTU_1975&quot; &quot;OTU_2082&quot; &quot;OTU_2904&quot; &quot;OTU_2016&quot;
+##  [25] &quot;OTU_1902&quot; &quot;OTU_2587&quot; &quot;OTU_2939&quot; &quot;OTU_742&quot;  &quot;OTU_2100&quot; &quot;OTU_1551&quot; &quot;OTU_2390&quot; &quot;OTU_3023&quot;
+##  [33] &quot;OTU_1325&quot; &quot;OTU_2498&quot; &quot;OTU_2801&quot; &quot;OTU_2589&quot; &quot;OTU_2900&quot; &quot;OTU_2706&quot; &quot;OTU_2790&quot; &quot;OTU_1713&quot;
+##  [41] &quot;OTU_2247&quot; &quot;OTU_3043&quot; &quot;OTU_2332&quot; &quot;OTU_2774&quot; &quot;OTU_2800&quot; &quot;OTU_2418&quot; &quot;OTU_3027&quot; &quot;OTU_2596&quot;
+##  [49] &quot;OTU_1967&quot; &quot;OTU_2504&quot; &quot;OTU_2785&quot; &quot;OTU_2704&quot; &quot;OTU_2553&quot; &quot;OTU_2601&quot; &quot;OTU_2241&quot; &quot;OTU_2109&quot;
+##  [57] &quot;OTU_2711&quot; &quot;OTU_2013&quot; &quot;OTU_2188&quot; &quot;OTU_2702&quot; &quot;OTU_2037&quot; &quot;OTU_2829&quot; &quot;OTU_2597&quot; &quot;OTU_2981&quot;
+##  [65] &quot;OTU_2883&quot; &quot;OTU_2251&quot; &quot;OTU_2595&quot; &quot;OTU_1983&quot; &quot;OTU_1530&quot; &quot;OTU_2039&quot; &quot;OTU_2042&quot; &quot;OTU_2555&quot;
+##  [73] &quot;OTU_2329&quot; &quot;OTU_3025&quot; &quot;OTU_3011&quot; &quot;OTU_1980&quot; &quot;OTU_2502&quot; &quot;OTU_2320&quot; &quot;OTU_2034&quot; &quot;OTU_2664&quot;
+##  [81] &quot;OTU_2952&quot; &quot;OTU_2415&quot; &quot;OTU_2242&quot; &quot;OTU_2557&quot; &quot;OTU_1732&quot; &quot;OTU_1633&quot; &quot;OTU_2894&quot; &quot;OTU_2927&quot;
+##  [89] &quot;OTU_2420&quot; &quot;OTU_585&quot;  &quot;OTU_3001&quot; &quot;OTU_3008&quot; &quot;OTU_2710&quot; &quot;OTU_2825&quot; &quot;OTU_2223&quot; &quot;OTU_2403&quot;
+##  [97] &quot;OTU_2035&quot; &quot;OTU_2552&quot; &quot;OTU_2370&quot; &quot;OTU_1025&quot; &quot;OTU_1580&quot; &quot;OTU_1586&quot; &quot;OTU_1956&quot; &quot;OTU_1487&quot;
+## [105] &quot;OTU_2406&quot; &quot;OTU_2943&quot; &quot;OTU_558&quot;  &quot;OTU_1922&quot; &quot;OTU_2902&quot; &quot;OTU_2608&quot; &quot;OTU_1653&quot; &quot;OTU_2905&quot;
+## [113] &quot;OTU_881&quot;  &quot;OTU_2257&quot; &quot;OTU_2544&quot; &quot;OTU_2255&quot; &quot;OTU_2934&quot; &quot;OTU_1669&quot; &quot;OTU_2588&quot; &quot;OTU_2666&quot;
+## [121] &quot;OTU_2421&quot; &quot;OTU_2937&quot; &quot;OTU_2317&quot; &quot;OTU_2822&quot; &quot;OTU_1758&quot; &quot;OTU_2941&quot; &quot;OTU_1921&quot; &quot;OTU_2598&quot;
+## [129] &quot;OTU_2592&quot; &quot;OTU_2386&quot; &quot;OTU_2585&quot; &quot;OTU_2256&quot; &quot;OTU_2234&quot; &quot;OTU_2493&quot; &quot;OTU_2383&quot; &quot;OTU_2408&quot;
+## [137] &quot;OTU_284&quot;  &quot;OTU_2045&quot; &quot;OTU_2186&quot; &quot;OTU_2936&quot; &quot;OTU_2104&quot; &quot;OTU_1992&quot; &quot;OTU_1969&quot; &quot;OTU_2233&quot;
+## [145] &quot;OTU_3002&quot; &quot;OTU_2709&quot; &quot;OTU_2921&quot; &quot;OTU_2827&quot; &quot;OTU_2931&quot; &quot;OTU_2175&quot; &quot;OTU_2703&quot; &quot;OTU_482&quot; 
+## [153] &quot;OTU_629&quot;  &quot;OTU_2903&quot; &quot;OTU_2940&quot; &quot;OTU_2463&quot; &quot;OTU_2998&quot; &quot;OTU_2593&quot; &quot;OTU_2990&quot; &quot;OTU_2667&quot;
+## [161] &quot;OTU_2586&quot; &quot;OTU_2770&quot; &quot;OTU_2823&quot; &quot;OTU_2501&quot; &quot;OTU_1908&quot; &quot;OTU_2700&quot; &quot;OTU_1743&quot; &quot;OTU_2835&quot;
 ## [169] &quot;OTU_2254&quot; &quot;OTU_1626&quot; &quot;OTU_2106&quot; &quot;OTU_1628&quot; &quot;OTU_3003&quot;
 ## OTU_IDs missing from the taxonomy that are present in the OTU table: 
 ## OTU_IDs missing from the tree that are present in the OTU table: 
