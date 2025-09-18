@@ -14,6 +14,13 @@ format:
     toc: true
     number-sections: true
     colorlinks: true
+  md:
+    variant: gfm+yaml_metadata_block+definition_lists
+    prefer-html: true
+    fig-format: retina
+    fig-width: 8
+    fig-height: 5
+    wrap: preserve
 editor: visual
 editor_options: 
   chunk_output_type: inline
