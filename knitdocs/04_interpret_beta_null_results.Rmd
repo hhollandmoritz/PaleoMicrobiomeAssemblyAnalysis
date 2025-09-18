@@ -1,11 +1,12 @@
 ---
 output:
- pdf_document:
-  toc: true
- html_document:
-  toc: true
-header-includes:
- - \usepackage{commonunicode}
+  html_document:
+    toc: true
+  pdf_document:
+    toc: true
+  word_document:
+    toc: true
+header-includes: \usepackage{commonunicode}
 ---
 ## Interpret Assembly Analysis results for Paleo Microbiome Project 
 ***This step takes the output from 
@@ -246,10 +247,15 @@ temptype.plot.prop
 ```
 
 I plotted the proportion of different types of assembly processes in Warm-Cold transitions as well as pairwise comparisons where both samples were considered either warm or cold
-- I expected that temperature changes would have a stronger homogeneous selective effect than those between the same temperature, but that was not the case.
+
+- I expected that temperature changes would have a stronger homogeneous selective effect than those between the same temperature, but that was not the case. 
+
 - In fact, Cold-Cold comparisons seemed to have the strongest selective pressure, while warm-warm and warm-cold had about the same amount of homogeneous (abiotic) selection. 
+
 - This may mean that cold exerts a greater selective pressure than warm, or possibly that cold conditions lead to other selective processes that are not present when warm conditions are present.
+
 - The cold-warm transition is one of the few places we see heterogeneous selection which could be consistent with the idea that once "woken up" competition forces play a larger role in some communities.
+
 - The major difference between same-same comparisons and "different" comparisions is in the dispersal processes. These appear to play a greater role, but both high dispersal, and dispersal limitation are present. 
 
 ### Question 4: Do those temperature processes differ in different Climate Epochs?
@@ -319,6 +325,7 @@ betanull_consecutive.lf %>%
 ```
 
 - largely the same
+
 ### How do the assembly processes change through time when only consecutive times are considered?
 
 ```{r}
