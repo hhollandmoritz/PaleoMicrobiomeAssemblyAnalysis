@@ -7,7 +7,6 @@ format:
   html:
     toc: true
     toc-depth: 4
-    toc-location: left
     html-math-method: katex
     theme: sandstone
   pdf:
