@@ -242,6 +242,16 @@ input_all <- check_sample_metadata(otu_table = otu_tax_input_all$otu_table,
                                     taxonomy = otu_tax_input_all$taxonomy_table,
                                     tree = trees_all$origroottree)
 
+# subset otu_tax_input by cyanos
+cyanolist <- otu_tax_input_all$taxonomy_table %>% filter(grepl("Cyanobacteria", Phylum)) %>%
+  select(OTU_ID)
+otu_table_cyanos <- otu_tax_input_all$otu_table %>% filter(OTU_ID %in% cyanolist$OTU_ID) 
+
+input_cyanos <- check_sample_metadata(otu_table = otu_table_cyanos,
+                                   sample_metadata = sample_metadata_all,
+                                   taxonomy = otu_tax_input_all$taxonomy_table,
+                                   tree = trees_all$origroottree)
+
 print("Done with setup.R")
 # For convenience parse input into different formats:
 #sample_metadata <- input$sample_metadata

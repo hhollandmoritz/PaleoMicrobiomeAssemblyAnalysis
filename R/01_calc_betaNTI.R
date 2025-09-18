@@ -51,6 +51,8 @@ rel_abund <- FALSE # is the otu table in relative abundances such as read mappin
 
 paral <- TRUE
 
+data_set <- "cyanos" # use the whole community asv table
+
 # Tell the user their settings:
 writeLines(paste("User settings are as follows: \n",
                  "Parallel:", paral, "\n",
@@ -104,11 +106,20 @@ if(paral==T) {
 # Read in OTU table and env data
 writeLines("reading in input data")
 
+# Select data:
+if(data_set == "all") {
+  input <- input_all
+} else {
+  input <- input_cyanos
+}
+
+writeLines(paste0("Data set is ", data_set))
+
 # Read in tree
-otutree <- input_all$tree
+otutree <- input$tree
 
 # Verify the everything is matching
-match.phylo.otu <- match.phylo.data(otutree, input_all$otu_table[-1])
+match.phylo.otu <- match.phylo.data(otutree, input$otu_table[-1])
 
 #### =================================================================================================== ####
 
@@ -209,9 +220,9 @@ dist_plot <- dist_plot.df %>%
 # Data
 # BetaNTI Matrix
 write.csv(weighted.bNTI,
-          paste0(outputs.fp, "/weighted_bNTI.csv"),
+          paste0(outputs.fp, "/weighted_bNTI_", data_set, ".csv"),
           quote=FALSE)
 
 # Figures
 ggsave(dist_plot, device = "png",
-       filename = paste0(figures.fp, "/weighted_bNTI_dist.png"))
+       filename = paste0(figures.fp, "/weighted_bNTI_dist_", data_set, ".png"))

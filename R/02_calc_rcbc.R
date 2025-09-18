@@ -49,11 +49,13 @@ if (!dir.exists(figures.fp)) {dir.create(figures.fp)}
 #### =================================================================================================== ####
 beta.reps <- 1000; # number of randomizations for rcbc
 
-rel_abund <- TRUE # is the otu table in relative abundances such as read mappings?
+rel_abund <- FALSE # is the otu table in relative abundances such as read mappings?
 
 speedup <- FALSE # speed up the process by filtering the community comparisions for only those that aren't considered under selection from betaNTI calculations; currently this option is not implemented in the code below
 
 paral <- TRUE
+
+data_set <- "cyanos"
 
 # Set this if you're having memory blow-out problems
 max_chunk_size <- 1000000
@@ -114,14 +116,19 @@ setDTthreads(threads = n.cores)
 #### Read in data 
 #### =================================================================================================== ####
 # Read in OTU table and env data
-#input <- input
+# Select data:
+if(data_set == "") { # assume "all" as default
+  input <- input_all
+} else {
+  input <- input_cyanos
+}
 
 # Read in tree
-magtree <- input_all$tree
+magtree <- input$tree
 
 # Read in betaNTI results, if we want to speedup based on this step
 if(speedup == TRUE) {
-  betaNTI <- read_csv(file = paste0(outputs.fp, "/weighted_bNTI.csv")) %>%
+  betaNTI <- read_csv(file = paste0(outputs.fp, "/weighted_bNTI_", data_set, ".csv")) %>%
     column_to_rownames(var = "X1")
 }
 
@@ -133,7 +140,7 @@ if(speedup == TRUE) {
 # Setting up the data to mesh with the Stegen et al. code
 #spXsite = t(input$otu_table[,2:10]) # test with smaller sample set
 #dim(spXsite)
-spXsite = t(input_all$otu_table[-1]) 
+spXsite = t(input$otu_table[-1]) 
 dim(spXsite)
 
 # If speedup is true, we will only do comparisons for the comparisons that were
@@ -364,7 +371,7 @@ if(!skip_null) {
   null_bray_curtis.ls <- foreach(a=idivix(nrow(site_comb_list), 
                                           chunkSize=chnk_size,
                                           comb_list=site_comb_list),
-                                 .packages = c("vegan"),
+                                 .packages = c("vegan", "data.table"),
                                  .init = NULL,
                                  .combine = rbind,
                                  .multicombine = TRUE,
@@ -406,9 +413,9 @@ if(!skip_null) {
   
   ## Save objects mid-process incase we have to restart.
   
-  saveRDS(null_bray_curtis,  paste0(outputs.fp, "/null_bray_curtis.RDS"))
+  saveRDS(null_bray_curtis,  paste0(outputs.fp, "/null_bray_curtis_", data_set, ".RDS"))
   write.csv(null_bray_curtis,
-            paste0(outputs.fp, "/null_bray_curtis_lf.csv"), row.names = FALSE,
+            paste0(outputs.fp, "/null_bray_curtis_lf_", data_set, ".csv"), row.names = FALSE,
             quote=FALSE)
 }
 gc()
@@ -424,7 +431,7 @@ print(date())
 # If skipping null generation:
 if(skip_null) {
   writeLines("Reading in null bray curtis from:")
-  print(paste0(outputs.fp, "/null_bray_curtis_lf.csv"))
+  print(paste0(outputs.fp, "/null_bray_curtis_lf_", data_set, ".csv"))
   writeLines(paste0("null_bray_curtis_lf.csv was created: ", 
                     file.info(paste0(outputs.fp, "/null_bray_curtis_lf.csv"))$ctime))
   
@@ -600,14 +607,14 @@ results.wf <- results.lf %>%
 # 
 # Data
 # RCBC matrix
-saveRDS(results.wf, paste0(outputs.fp, "/rcbc_matrix.RDS"))
+saveRDS(results.wf, paste0(outputs.fp, "/rcbc_matrix_", data_set, ".RDS"))
 write.csv(results.wf,
-          paste0(outputs.fp, "/rcbc_matrix.csv"),
+          paste0(outputs.fp, "/rcbc_matrix_", data_set, ".csv"),
           quote=FALSE)
 
 # Long formats outputs from foreach loops
 write.csv(results.lf,
-          paste0(outputs.fp, "/rcbc_long_form.csv"),
+          paste0(outputs.fp, "/rcbc_long_form_", data_set, ".csv"),
           quote=FALSE, row.names = FALSE)
 
 
