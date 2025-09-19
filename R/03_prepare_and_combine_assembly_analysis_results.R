@@ -31,12 +31,15 @@ figures.fp <- here("figures")
 if (!dir.exists(outputs.fp)) {dir.create(outputs.fp)}
 if (!dir.exists(figures.fp)) {dir.create(figures.fp)}
 
+
+# Set dataset
+data_set <- "cyanos" # default is "all"
 #### ====================================================================== ####
 
 # Helpful functions
 #### ====================================================================== ####
 transform_betaNTI <- function(betaNTI_fp = here("outputs", "weighted_bNTI.csv"),
-                              sample_metadata = input_all$sample_metadata){
+                              sample_metadata = input$sample_metadata){
   # Read in betaNTI results
   betaNTI <- read_csv(file = betaNTI_fp) %>%
     rename(SampleID = 1) %>%
@@ -66,11 +69,18 @@ transform_betaNTI <- function(betaNTI_fp = here("outputs", "weighted_bNTI.csv"),
 
 #### Read in data 
 #### ====================================================================== ####
-# Transform BetaNTI from different sources
-betaNTI_all <- transform_betaNTI(betaNTI_fp = here("outputs", "weighted_bNTI.csv"),
-                                 sample_metadata = input_all$sample_metadata)
+# Select data:
+if(data_set == "all") {
+  input <- input_all
+} else {
+  input <- input_cyanos
+}
 
-betaNTI <- read_csv(file = here("outputs", "weighted_bNTI.csv")) %>%
+# Transform BetaNTI from different sources
+betaNTI_all <- transform_betaNTI(betaNTI_fp = here("outputs", paste0("weighted_bNTI_", data_set, ".csv")),
+                                 sample_metadata = input$sample_metadata)
+
+betaNTI <- read_csv(file = here("outputs", paste0("weighted_bNTI_", data_set, ".csv"))) %>%
   rename(SampleID = 1) %>%
   column_to_rownames(var = "SampleID")
 # # Create a long-form dummy data frame to combine results
@@ -80,13 +90,13 @@ betaNTI <- read_csv(file = here("outputs", "weighted_bNTI.csv")) %>%
 # betaNTI_sing[upper.tri(betaNTI_sing)] <- 999 
 # 
 # Read in RCBC results
-RCBC.raw <- read_csv(file = here("outputs", "/rcbc_matrix.csv"))
+RCBC.raw <- read_csv(file = here("outputs", paste0("/rcbc_matrix_",data_set, ".csv")))
 
-RCBC <- RCBC.raw[c(as.character(1:ncol(input_all$otu_table[-1]))),
-                 c(as.character(1:ncol(input_all$otu_table[-1])))]
+RCBC <- RCBC.raw[c(as.character(1:ncol(input$otu_table[-1]))),
+                 c(as.character(1:ncol(input$otu_table[-1])))]
 RCBC <- as.matrix(RCBC)
-colnames(RCBC) <- names(input_all$otu_table[-1])
-rownames(RCBC) <- names(input_all$otu_table[-1])
+colnames(RCBC) <- names(input$otu_table[-1])
+rownames(RCBC) <- names(input$otu_table[-1])
 # 
 # # Set the upper corner of RCBC to 999 to distinguish self-comparison NAs from 
 # # NAs generated during RCBC calculation; 
@@ -104,7 +114,7 @@ rownames(RCBC) <- names(input_all$otu_table[-1])
 # Placeholder - so far planning to use all comparisons
 #### ====================================================================== ####
 # Since we're working with depths, let's make a list of all consecutive comparisons and only filter those out
-Ranked_depth.df <- input_all$sample_metadata %>%
+Ranked_depth.df <- input$sample_metadata %>%
   select(SampleID, AvgDepth) %>%
   mutate(DepthRank = rank(AvgDepth),
          SampleID2 = lead(SampleID)) %>%
@@ -157,7 +167,7 @@ betaNTI.lf <- betaNTI_all
 
 # Sanity check, do we have the right number of rows?
 # There are 528 combinations (without self-comparisons) of 33 samples
-nrow(betaNTI.lf) == dim(combn(nrow(input_all$sample_metadata), 2))[2] # TRUE == good (combn(33, 2))
+nrow(betaNTI.lf) == dim(combn(nrow(input$sample_metadata), 2))[2] # TRUE == good (combn(33, 2))
 
 # Get list of "stochastic" comparisons, by setting any
 # non-stochastic comparisons to NA
@@ -181,8 +191,8 @@ RCBC.lf <- RCBC %>%
   filter(Site1 != Site2) %>% # self-comparisons
   filter(!is.na(RCBC)) %>% # duplicate comparisons from upper triangle
   # remove samples that are not in the metadata
-  filter(Site1 %in% input_all$sample_metadata$SampleID) %>%
-  filter(Site2 %in% input_all$sample_metadata$SampleID) %>%
+  filter(Site1 %in% input$sample_metadata$SampleID) %>%
+  filter(Site2 %in% input$sample_metadata$SampleID) %>%
   # Add column of BetaNTI interpretation
   mutate(Assembly_Process = ifelse(RCBC < -0.95, "Homogenizing dispersal",
                                    ifelse(RCBC <= 0.95, "Drift",
@@ -191,7 +201,7 @@ RCBC.lf <- RCBC %>%
 
 # Sanity check, do we have the right number of rows?
 # ncol(combn(xxxsamples, 2))
-nrow(RCBC.lf) == ncol(combn(nrow(input_all$sample_metadata), 2))
+nrow(RCBC.lf) == ncol(combn(nrow(input$sample_metadata), 2))
 #### ====================================================================== ####
 
 #' Create a table with betaNTI and rcbc results combined
@@ -249,7 +259,7 @@ betanull.lf <- left_join(betaNTI_all_filt %>%
                 Assembly_Process.RCBC, Assembly_Process, everything())
 
 # Sanity check, do we have the right number of rows?
-nrow(betanull.lf) == ncol(combn(nrow(input_all$sample_metadata), 2))
+nrow(betanull.lf) == ncol(combn(nrow(input$sample_metadata), 2))
 
 
 # Transform combined dataframe to wide format
@@ -277,18 +287,18 @@ betanull.mat <- as.matrix(betanull.wf)
 #### ====================================================================== ####
 # # Data
 # assembly results in long format
-saveRDS(betanull_consecutive.lf, paste0(outputs.fp, "/betanull.consecutive.lf.RDS"))
+saveRDS(betanull_consecutive.lf, paste0(outputs.fp, "/betanull.consecutive.lf_", data_set, ".RDS"))
 write.csv(betanull_consecutive.lf,
-          paste0(outputs.fp, "/betanull.consecutive.lf.csv"),
+          paste0(outputs.fp, "/betanull.consecutive.lf_", data_set, ".csv"),
           quote=TRUE, row.names = FALSE)
 
-saveRDS(betanull.lf, paste0(outputs.fp, "/betanull.lf.RDS"))
+saveRDS(betanull.lf, paste0(outputs.fp, "/betanull.lf_", data_set, ".RDS"))
 write.csv(betanull.lf,
-          paste0(outputs.fp, "/betanull.lf.csv"),
+          paste0(outputs.fp, "/betanull.lf_", data_set, ".csv"),
           quote=TRUE, row.names = FALSE)
 
-saveRDS(betanull.wf, paste0(outputs.fp, "/betanull.wf.RDS"))
+saveRDS(betanull.wf, paste0(outputs.fp, "/betanull.wf_", data_set, ".RDS"))
 write.csv(betanull.wf,
-          paste0(outputs.fp, "/betanull.wf.csv"),
+          paste0(outputs.fp, "/betanull.wf_", data_set, ".csv"),
           quote=FALSE, row.names = FALSE)
 
