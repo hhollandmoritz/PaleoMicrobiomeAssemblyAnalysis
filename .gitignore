@@ -3,5 +3,8 @@
 .RData
 .Ruserdata
 *.Rproj
-#figures
+figures/*
 00_raw_data
+outputs/*
+knitdocs/04_interpret_beta_null_results_*
+knitdocs/04_interpret_beta_null_results.markdown*
