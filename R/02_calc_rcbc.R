@@ -55,7 +55,7 @@ speedup <- FALSE # speed up the process by filtering the community comparisions 
 
 paral <- TRUE
 
-data_set <- "cyanos"
+data_set <- "mean_mt_0.5"
 
 # Set this if you're having memory blow-out problems
 max_chunk_size <- 1000000
@@ -355,7 +355,7 @@ if(!skip_null) {
   # Set up the tmp directory to report out - this is important otherwise
   # the final combination object might be too big to hold in memory. 
   # Writing the outputs to temporary files and then reading them in solves that problem
-  tmp_null <- here(outputs.fp, "tmp")
+  tmp_null <- here(outputs.fp, paste0("tmp", data_set))
   if(!dir.exists(tmp_null)) {
     dir.create(tmp_null)
   } else {
@@ -545,7 +545,7 @@ if(paral == TRUE) {
 # Set up the tmp directory to report out - this is important otherwise
 # the final combination object might be too big to hold in memory. 
 # Writing the outputs to temporary files and then reading them in solves that problem
-tmp_comp <- here(outputs.fp, "tmp_2")
+tmp_comp <- here(outputs.fp, paste0("tmp_2", data_set))
 if(!dir.exists(tmp_comp)) {
   dir.create(tmp_comp)
 } else {
@@ -628,11 +628,11 @@ if(paral == TRUE) {
     writeLines("closing mpi cluster")
     # Note: due to this problem: https://stackoverflow.com/questions/41007564/stopcluster-in-r-snow-freeze
     # using closeCluster will cause the job to hang. To bruteforce it, I will use mpi.exit/mpi.quit instead
-    #doMPI::closeCluster(cl) # due to this problem: 
+    doMPI::closeCluster(cl) # due to this problem: 
     
      writeLines("Stopping mpi")
-     Rmpi::mpi.exit()
-     Rmpi::mpi.quit()  # or mpi.quit(), which quits R as well
+     #Rmpi::mpi.exit()
+     #Rmpi::mpi.quit()  # or mpi.quit(), which quits R as well
 
   } else if (n.cores > 1) {
     writeLines("closing parallel fork cluster")
