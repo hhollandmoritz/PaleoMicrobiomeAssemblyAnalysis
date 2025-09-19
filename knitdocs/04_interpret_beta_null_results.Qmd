@@ -12,6 +12,8 @@ format:
     self-contained-math: true
     html-math-method: katex
     theme: sandstone
+    code-fold: true
+    code-summary: "Show the code"
   pdf:
     toc: true
     number-sections: true
@@ -23,6 +25,11 @@ format:
     fig-width: 8
     fig-height: 5
     wrap: preserve
+  docx:
+    toc: true
+    number-sections: true
+    highlight-style: github
+    prefer-html: true
 editor: visual
 editor_options: 
   chunk_output_type: inline
@@ -607,13 +614,13 @@ dust_data_betanull <- dust_data %>% nest() %>%
 
 ```{r}
 #| warning: false
-#| fig-height: 10
-#| fig-width: 15
+#| fig-height: 35
+#| fig-width: 10
 # now pull out the correlations
 
 #response_plots <- purrr::map(flatten(dust_data_betanull$dust_size_plot), ~cowplot::plot_grid(plotlist = .x))
 
-cowplot::plot_grid(plotlist = dust_data_betanull$dust_size_plot, ncol = 3)
+cowplot::plot_grid(plotlist = dust_data_betanull$dust_size_plot, ncol = 2)
 ```
 
 ```{r}
@@ -717,8 +724,6 @@ ggplot(IceDiff.betanull,
 As ice amounts increase in difference between samples, dispersal processes do not appear to increase
 
 #### Does the relative abundance of Cryobacterium appear to influence assemlby processes?
-
-
 
 ```{r eval=TRUE}
 # Cryobacterium names

@@ -246,6 +246,7 @@ input_all <- check_sample_metadata(otu_table = otu_tax_input_all$otu_table,
 cyanolist <- otu_tax_input_all$taxonomy_table %>% filter(grepl("Cyanobacteria", Phylum)) %>%
   select(OTU_ID)
 otu_table_cyanos <- otu_tax_input_all$otu_table %>% filter(OTU_ID %in% cyanolist$OTU_ID) 
+otu_table_cyanos <- otu_table_cyanos[,c(TRUE,otu_table_cyanos[-1] %>% colSums() != 0)] # filter out samples that have no cyanos in them
 
 input_cyanos <- check_sample_metadata(otu_table = otu_table_cyanos,
                                    sample_metadata = sample_metadata_all,

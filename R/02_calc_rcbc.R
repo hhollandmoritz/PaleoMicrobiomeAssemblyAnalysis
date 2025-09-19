@@ -49,7 +49,7 @@ if (!dir.exists(figures.fp)) {dir.create(figures.fp)}
 #### =================================================================================================== ####
 beta.reps <- 1000; # number of randomizations for rcbc
 
-rel_abund <- FALSE # is the otu table in relative abundances such as read mappings?
+rel_abund <- TRUE # is the otu table in relative abundances such as read mappings?
 
 speedup <- FALSE # speed up the process by filtering the community comparisions for only those that aren't considered under selection from betaNTI calculations; currently this option is not implemented in the code below
 
@@ -367,7 +367,13 @@ if(!skip_null) {
     f <- list.files(tmp_null, include.dirs = F, full.names = T, recursive = T)
     file.remove(f)
   }
-  
+  # debugging
+  # null.tmp <- do.call('rbind', lapply(seq(1, length.out=80000), function(i) {
+  #   site_comb_temp <- as.list(site_comb_list[i,])
+  #   create_null(site_comb = site_comb_temp, spXsite = spXsite)}))
+  # 
+  #debugging
+  #site_comb_list <- site_comb_list[1:80000,]
   null_bray_curtis.ls <- foreach(a=idivix(nrow(site_comb_list), 
                                           chunkSize=chnk_size,
                                           comb_list=site_comb_list),
@@ -502,7 +508,7 @@ compare_null <- function(site_comb, null_bray_curtis, beta.reps = beta.reps, spX
 # nreps should = 1 since we only need to do a null-obs comparision for each pair of sites one time
 rm(site_comb_list)
 site_comb_list <- create_spec_comb(nsites = nrow(spXsite), nreps = 1)
-
+#site_comb_list[1:30,]
 # Use foreach to compare null to obs in parallel
 chnk_size <- min(floor(nrow(site_comb_list)/n.cores), max_chunk_size)
 chnk_size <- max(n.cores, chnk_size) # n.cores represents the low end of tasks we want to run
