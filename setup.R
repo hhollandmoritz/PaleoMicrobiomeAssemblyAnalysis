@@ -5,6 +5,7 @@ library(ape)
 library(phytools)
 library(picante)
 library(tidyverse)
+library(data.table) # for efficient reading of first character
 
 read_mapping_info <- function(map_fp = here("00_raw_data", "Supplementary_Tables.xlsx"), sheet = "Table 1") {
     if(grepl("xlsx", map_fp)) {
@@ -18,9 +19,15 @@ read_mapping_info <- function(map_fp = here("00_raw_data", "Supplementary_Tables
 }
 
 
-read_otu_tax_table <- function() {
-  d <- read_tsv(here("00_raw_data", "feature-table_sort_de_final_sub_GP2_16000.txt"), skip = 1) %>%
+read_otu_tax_table <- function(file = here("00_raw_data", "feature-table_sort_de_final_sub_GP2_16000.txt")) {
+  
+  if(substring(fread(file, sep="\n", header=FALSE)[[1]], 1, 1)[1] == "#") {
+    skip = 1
+  } else { skip = 0}
+  d <- read_tsv(file, skip = skip) %>%
     rename(OTU_ID = 1)
+  
+  
   
   # get taxa table with renamed asvs
   taxonomy_table_all <- d %>%
@@ -212,6 +219,46 @@ transform_perc <- function(vec) {
   (vec * (length(vec) - 1) + 0.5) / length(vec)
 }
 
+
+read_and_combine <- function(file = here("00_raw_data", "feature-table_sort_de_final_sub_GP2_16000.txt")) {
+  input_otu_file <- file
+  otu_tax_input <- read_otu_tax_table(file = input_otu_file)
+  # Read in both single and average
+  otu_tax_input_all <- otu_tax_input$input_list_all
+  
+  sample_metadata_all <- read_mapping_info(map_fp = here("00_raw_data", "Supplementary_Tables.xlsx"),
+                                           sheet = "Table 1") %>%
+    clean_sample_metadata(sample_metadata = .) %>%
+    select(SampleID, everything())
+  
+  
+  trees_all <- read_phy_tree(otu_table = otu_tax_input_all$otu_table, 
+                             OTU_IDs = otu_tax_input_all$OTU_IDs,
+                             tree_fp = here("00_raw_data", "phylogenetic_tree.tre"),
+                             visualize = F)
+  
+  
+  # Check sample metadata and combine into one output
+  input <- check_sample_metadata(otu_table = otu_tax_input_all$otu_table,
+                                     sample_metadata = sample_metadata_all,
+                                     taxonomy = otu_tax_input_all$taxonomy_table,
+                                     tree = trees_all$origroottree)
+  return(input)
+}
+
+
+# Select data:
+choose_data_set <- function(data_set) {
+  if(data_set %in% names(otu_inputs_mt)) {
+    input <- otu_inputs_mt[[data_set]]
+  } else if (data_set == "cyanos") {
+    input <- input_cyanos
+  } else { # input all is the final option
+    input <- input_all
+  }
+  writeLines(paste0("Running analysis on ", data_set))
+  return(input)
+}
 ################################################################################################
 ################################################################################################
 ################################################################################################
@@ -252,6 +299,15 @@ input_cyanos <- check_sample_metadata(otu_table = otu_table_cyanos,
                                    sample_metadata = sample_metadata_all,
                                    taxonomy = otu_tax_input_all$taxonomy_table,
                                    tree = trees_all$origroottree)
+
+
+suffix_of_otu_tables <- c("mean_mt_0.1.txt", "mean_mt_0.5.txt", "mean_mt_1.0.txt", 
+                          "max_mt_0.1.txt", "max_mt_0.5.txt", "max_mt_1.0.txt") 
+
+otu_inputs_mt <- purrr::map(suffix_of_otu_tables, ~read_and_combine(file = here("00_raw_data", paste0("feature-table_sort_de_final_sub_GP2_16000_", .x))))
+
+names(otu_inputs_mt) <- gsub(".txt", "", suffix_of_otu_tables)
+
 
 print("Done with setup.R")
 # For convenience parse input into different formats:

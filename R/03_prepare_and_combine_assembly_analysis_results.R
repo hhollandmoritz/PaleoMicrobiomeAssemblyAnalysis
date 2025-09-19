@@ -70,11 +70,7 @@ transform_betaNTI <- function(betaNTI_fp = here("outputs", "weighted_bNTI.csv"),
 #### Read in data 
 #### ====================================================================== ####
 # Select data:
-if(data_set == "all") {
-  input <- input_all
-} else {
-  input <- input_cyanos
-}
+input <- choose_data_set(data_set = data_set)
 
 # Transform BetaNTI from different sources
 betaNTI_all <- transform_betaNTI(betaNTI_fp = here("outputs", paste0("weighted_bNTI_", data_set, ".csv")),

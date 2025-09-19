@@ -117,11 +117,7 @@ setDTthreads(threads = n.cores)
 #### =================================================================================================== ####
 # Read in OTU table and env data
 # Select data:
-if(data_set == "") { # assume "all" as default
-  input <- input_all
-} else {
-  input <- input_cyanos
-}
+input <- choose_data_set(data_set = data_set)
 
 # Read in tree
 magtree <- input$tree

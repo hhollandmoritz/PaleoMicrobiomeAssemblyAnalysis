@@ -51,7 +51,7 @@ rel_abund <- FALSE # is the otu table in relative abundances such as read mappin
 
 paral <- TRUE
 
-data_set <- "cyanos" # use the whole community asv table
+data_set <- "cyanos" # use the whole community asv table, options are "all", "cyanos", any one of the names of otu_inputs_mt
 
 # Tell the user their settings:
 writeLines(paste("User settings are as follows: \n",
@@ -105,15 +105,7 @@ if(paral==T) {
 #### =================================================================================================== ####
 # Read in OTU table and env data
 writeLines("reading in input data")
-
-# Select data:
-if(data_set == "all") {
-  input <- input_all
-} else {
-  input <- input_cyanos
-}
-
-writeLines(paste0("Data set is ", data_set))
+input <- choose_data_set(data_set = data_set)
 
 # Read in tree
 otutree <- input$tree
