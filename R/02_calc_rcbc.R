@@ -55,7 +55,7 @@ speedup <- FALSE # speed up the process by filtering the community comparisions 
 
 paral <- TRUE
 
-data_set <- "mean_mt_0.5"
+data_set <- "max_mt_1.0"
 
 # Set this if you're having memory blow-out problems
 max_chunk_size <- 1000000
@@ -87,7 +87,7 @@ if(paral==T) {
   
   if (n.cores > 24) {
     # we are using more than 1 CPU, so really run in parallel mode
-    cl <- startMPIcluster(count = n.cores)
+    cl <- startMPIcluster() # trying to remove count in the hopes that the cluster shuts down more gracefully
     registerDoMPI(cl) # tell foreach about the cluster
     print(paste("Running in parallel mode on",n.cores,"worker nodes."))
     
