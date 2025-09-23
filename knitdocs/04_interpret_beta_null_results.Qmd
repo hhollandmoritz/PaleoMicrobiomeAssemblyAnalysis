@@ -621,7 +621,8 @@ dust_data_betanull <- dust_data %>% nest() %>%
 
 ```{r}
 #| warning: false
-#| fig-height: 35
+#| layout-ncol: 2
+#| fig-height: 10
 #| fig-width: 10
 # now pull out the correlations
 
@@ -882,7 +883,7 @@ temptype.plot.prop.consec <- ggplot(epochtemptype.plot.prop.df, aes(x = TempCond
 temptype.plot.prop.consec <- temptype.plot.prop.consec + 
   theme(legend.position = "none") + ggtitle(plot_title)
 
-return(list(figure = temptype.plot.prop.consec, legend = legend_plot, 
+return(list(figure = temptype.plot.prop.consec, 
             data = epochtemptype.plot.prop.df))
 }
 
@@ -892,6 +893,8 @@ names(temp_change_plot_list) <- otu_filter_levels
 ```
 
 ```{r}
+#| message: false
+#| warning: false
 #| fig-height: 7
 #| fig-width: 10
 ggpubr::ggarrange(plotlist = temp_change_plot_list, common.legend = T) # need to fix legend....
@@ -927,23 +930,27 @@ dust_data_betanull <- dust_data %>% nest() %>%
                                      cor.test(~ AssemblyValue + DustDiff, data = ., method = "pearson"))) %>%
   # Plot
   mutate(dust_size_plot = purrr::map2(dust_data_betanull, dust_size_class, ~ggplot(.x, aes(x = DustDiff, y = AssemblyValue)) +
-                                       geom_point(aes(color = Assembly_Process)) +
+                                       geom_point(aes(color = Assembly_Process), size = rel(2)) +
                                        scale_color_manual(name = "Assembly Process", values = fill_assembly,
                                                           breaks = assembly_levels,
                                                           labels = assembly_labels) +
                                        facet_wrap(~AssemblyMetric, scales = "free_y") +
-                                       theme_bw() + ggtitle(.y) + theme(legend.position = "none")))
+                                       theme_bw() + ggtitle(.y) + theme(legend.position = "none", aspect.ratio = 1)))
 ```
 
 ```{r}
+#| message: false
 #| warning: false
-#| fig-height: 35
+#| results: hide
+#| error: false
+#| layout-ncol: 1
+#| fig-height: 10
 #| fig-width: 10
 # now pull out the correlations
 
 #response_plots <- purrr::map(flatten(dust_data_betanull$dust_size_plot), ~cowplot::plot_grid(plotlist = .x))
 
-cowplot::plot_grid(plotlist = dust_data_betanull$dust_size_plot, ncol = 2)
+ggpubr::ggarrange(plotlist = dust_data_betanull$dust_size_plot, ncol = 1)
 ```
 
 ```{r}
