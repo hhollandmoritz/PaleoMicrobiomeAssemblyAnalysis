@@ -42,7 +42,7 @@ editor_options:
 1.  What assembly processes predominate in these paleo-microbiome samples?
 2.  What assembly processes characterize each Epoch, and the Epoch transitions?
 3.  What assembly processes drive cold to warm transitions?
-4.  Do those processes differ in different Climate Epochs? Bonus: Are any other factors related to assembly processes? 
+4.  Do those processes differ in different Climate Epochs? Bonus: Are any other factors related to assembly processes?
 
 #### How does assembly analysis work? Find out more at this link: [SlideShow](https://docs.google.com/presentation/d/1BSLtMNZZrXxR9Nk0GER2RBBGPU0I1v4zAgnr9jylAQw/edit?usp=sharing)
 
@@ -66,7 +66,9 @@ knitr::opts_chunk$set(eval = TRUE,
 library(tidyverse); packageVersion("tidyverse") # for dataframe processing
 library(vegan); packageVersion("vegan") # for ecological applications
 library(viridis)
+library(purrr)
 library(cowplot) # Pretty plotting
+library(ggpubr) # pretty plotting
 library(kableExtra) # pretty tables
 library(here)
 
@@ -90,15 +92,16 @@ colour_brewer <- setNames(append(as.list(RColorBrewer::brewer.pal(12, "Paired"))
 type_levels <- c("BL", "RF")
 colour_type <- c("#703C1B","brown", "#058000")
 fill_type   <- colour_type
-assembly_levels <- c("Homogenous selection", "Heterogenous selection",
-                     "Homogenizing dispersal", "Dispersal limitation and drift",
-                     "Drift")
+assembly_levels <-c("Homogenous selection", "Heterogenous selection", "Homogenizing dispersal",
+                    "Dispersal limitation and drift", "Drift")
 assembly_labels <- assembly_levels
 #colour_assembly <- c("#133253", "#738CA6","#1C4A00","#80BA5D", "#B1DF95") # blue/green
 #colour_assembly <- c("#3F002E", "#BE7FAD","#871200","#DA3015", "#FF816D") # purple/red
 #colour_assembly <- c("#6C358D", "#AB81C4","#085A4F","#2D8478", "#79BDB4") # purple/teal
 colour_assembly <- c("#521168", "#8e318f","#BD4D0C","#FF8000", "#FADBAC") # purple/orange
 fill_assembly <- colour_assembly
+epoch_levels <- c("Holocene", "LGS:Holocene","LGS","Pre-LGS:LGS","Pre-LGS")
+tempcondition_levels <- c("Cold-Cold", "Warm-Warm", "Warm-Cold")
 #### ====================================================================== ####
 ```
 
@@ -119,44 +122,47 @@ fill_assembly <- colour_assembly
 betanull.lf <- read_csv(file = paste0(outputs.fp, "/betanull.lf.csv"))
 betanull_consecutive.lf <- read_csv(file = paste0(outputs.fp, "/betanull.consecutive.lf.csv"))
 
+otu_filter_levels <- c("all", "mean_mt_0.1", "max_mt_0.1", "mean_mt_1.0", "max_mt_1.0")
 
-# Change variables into a factors
-betanull.lf <- betanull.lf %>%
-  mutate(across(starts_with("TempCondition"), ~ factor(.x, 
-                                               levels = c("Cold-Cold", 
-                                                          "Warm-Warm", 
-                                                          "Warm-Cold")))) %>%
-  mutate(EpochType = factor(EpochType, 
-                            levels = c("Holocene", 
-                                       "LGS:Holocene", 
-                                       "LGS", 
-                                       "Pre-LGS:LGS", 
-                                       "Pre-LGS"))) %>%
-  mutate(Assembly_Process = factor(Assembly_Process, 
-                                   levels = c("Homogenous selection",
-                                              "Heterogenous selection",
-                                              "Homogenizing dispersal",
-                                              "Dispersal limitation and drift",
-                                              "Drift")))
+read_and_qc_betanull_longform <- function(consecutive = T, filter_level = "max_mt_1.0") {
+  # Set factor levels
+  assembly_levels <-c("Homogenous selection", "Heterogenous selection",
+                      "Homogenizing dispersal", "Dispersal limitation and drift",
+                      "Drift")
+  epoch_levels <- c("Holocene", "LGS:Holocene","LGS","Pre-LGS:LGS","Pre-LGS")
+  tempcondition_levels <- c("Cold-Cold", "Warm-Warm", "Warm-Cold")
 
-# Change variables into a factors
-betanull_consecutive.lf <- betanull_consecutive.lf %>%
+  if(consecutive) {
+    consec_option <- "consecutive."
+  } else {
+    consec_option <- ""}
+  
+  if(filter_level == "all") {
+    filter_option <- ""
+  } else {
+    filter_option <- paste0("_", filter_level)
+  }
+  fp <- paste0(outputs.fp, "/betanull.", consec_option, "lf", filter_option, ".csv")
+  writeLines(paste0("reading in ", fp))
+  betanull_file <- read_csv(file = fp)
+  
+  # clean factors
+  betanull_file <- betanull_file %>%
   mutate(across(starts_with("TempCondition"), ~ factor(.x, 
-                                                       levels = c("Cold-Cold", 
-                                                                  "Warm-Warm", 
-                                                                  "Warm-Cold")))) %>%
+                                               levels = tempcondition_levels))) %>%
   mutate(EpochType = factor(EpochType, 
-                            levels = c("Holocene", 
-                                       "LGS:Holocene", 
-                                       "LGS", 
-                                       "Pre-LGS:LGS", 
-                                       "Pre-LGS"))) %>%
+                            levels = epoch_levels)) %>%
   mutate(Assembly_Process = factor(Assembly_Process, 
-                                   levels = c("Homogenous selection",
-                                              "Heterogenous selection",
-                                              "Homogenizing dispersal",
-                                              "Dispersal limitation and drift",
-                                              "Drift")))
+                                   levels = assembly_levels))
+
+  
+  return(betanull_file)
+}
+
+# read in the consecutive comparison betanull dataframes for each filter level
+betanull_list_consecutive <- purrr::map(otu_filter_levels, ~read_and_qc_betanull_longform(filter_level = .x))
+names(betanull_list_consecutive) <- otu_filter_levels
+
 
 # read in dust sizes
 dust_size <- readxl::read_excel(path  = "../00_raw_data/dust_size_all_to_Hannah.xlsx")
@@ -502,6 +508,7 @@ ggsave(temptype.plot.prop.consec,
        width = 4, height = 12, dpi = 400)
 temptype.plot.prop.consec
 ```
+
 ### Question 4: Do these consecutive temperature transitions differ by different epochs?
 
 ```{r}
@@ -519,10 +526,10 @@ temptype.epoch.plot.prop.consec
 -   *Warm-Warm* and *Warm-Cold*: In the epoch's prior to the Holocene there are greater stochastic processes when a warm transition is involved (either warm-warm or warm-cold transition). More dispersal, and drift dominate. However there is still an appreciable selective signal even in these transitions, although the selection is not consistent between periods (Warm-Warm has selection in the pre-LGS time, Warm-Cold has selection in the LGS).
 
 ## Bonus: Are any other factors related to assembly processes?
+
 (Analyses below have been restricted to consecutive sample comparisions).
 
 ### Dust differences and Assembly process
-
 
 ```{r eval=TRUE}
 #### ====================================================================== ####
@@ -723,7 +730,7 @@ ggplot(IceDiff.betanull,
 
 As ice amounts increase in difference between samples, dispersal processes do not appear to increase
 
-#### Does the relative abundance of Cryobacterium appear to influence assemlby processes?
+#### Does the relative abundance of Cryobacterium appear to influence assembly processes?
 
 ```{r eval=TRUE}
 # Cryobacterium names
@@ -779,6 +786,186 @@ ggplot(CryoDiff.betanull,
 -   The relative abundance of Cryobacterium does appear to influence assembly processes (pearson correlation \~ 0.4 in each case, significant at the 0.05 level).
 -   Samples with more similar Cryobacterium communities have stronger homogenizing selective processes than those with very different cyobacterium relative abundances. Similarly, for stochastic processes, very different cryobacterium relative abundances seem related to dispersal limitation, while similar abundances have more homogenizing selection.
 
+## Do the assembly processes change when rare taxa are excluded?
+
+I ran the assembly analysis on the table where rare lineages had been filtered out.
+
+| Table name | Filtering description |
+|------------------------------------|------------------------------------|
+| All | No filtering applied |
+| max_mt_1.0 | only taxa with maximum rel. abund. \> 1% in at least 1 sample |
+| mean_mt_1.0 | only taxa with mean rel. abund. \> 1% in the 33 samples |
+| max_mt_0.1 | only taxa with maximum rel. abund. \> 0.1% in at least 1 sample |
+| mean_mt_0.1 | only taxa with mean rel. abund. \> 0.1% in the 33 samples |
+
+: Description of the different taxa tables used and their filtering
+
+```{r}
+
+calculate_percent_assembly_process <- function(filter_name = "max_mt_1.0", betanull_long_form = betanull_consecutive.lf.max_mt_1.0) {
+  dt <- betanull_long_form %>%
+  select(Site1, Site2, BetaNTI, RCBC, Assembly_Process) %>%
+  group_by(Assembly_Process) %>%
+  tally() %>%
+  mutate(Total = sum(n),
+         Percent = round(100*n/Total, digits = 2)) %>%
+  arrange(desc(Percent)) %>%
+  mutate(filter_level = filter_name)
+  
+  return(dt)
+}
+
+percentage_table <- purrr::map(otu_filter_levels, ~calculate_percent_assembly_process(filter_name = .x, 
+                                                                  betanull_long_form = betanull_list_consecutive[[.x]])) %>%
+  purrr::reduce(bind_rows)
+
+percentage_table %>%
+  select(Assembly_Process, Percent, filter_level) %>%
+  pivot_wider(names_from = "filter_level", values_from = "Percent") %>%
+  kbl() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+percentage_table %>%
+  select(Assembly_Process, n, filter_level) %>%
+  pivot_wider(names_from = "filter_level", values_from = "n") %>%
+  kbl() %>%
+  kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+```
+
+Selection becomes less prominent (or non-existent) in datasets with rare taxa filtered out, instead drift takes over as the most prominent process.
+
+Additionally there are interesting differences between the "max" and "mean" filtering strategy. In the "max" filtering strategy, taxa have to meet a less stringent ubiquity bar than the "mean" filtering strategy. Taxa don't have to be present in multiple samples at high abundance, just 1 of the 33. So taxa that are typically rare, but can take over occasionally may make the cut. We could imagine that something like this might happen in the case of either high migration (dust deposition) or high growth (a temporary bloom). We see more selection occurring in the max-filtered datasets than in the mean-filtered ones. Furthermore, the less-strict the filtering level (0.1% is less strict than 1.0%), the more homogenizing selection dominates. This is likely because we are observing the large selective pressures that follow a bloom, or large migration event in one or a few samples. In contrast, the "mean" filtering strategy, experiences no homogenizing selection, and primarily is dominated by drift. I suspect this might be because the mean better captures the "core" community of ice-dwelling organisms that do not experience as strong of a selective pressure year over year.
+
+When rare taxa (the likely ones putatively being blown in are filtered out, the process that dominates is drift). ***This suggests that Karna's theory has merit: That there is a strong biotic filter imposed on the rare taxa that is not imposed on the more abundant taxa, possibly due to the deposition process?.***
+
+#### How do these processes change our understandings of temperature transitions?
+
+```{r}
+plot_tempchange <- function(betanull_long_form = betanull_consecutive.lf.max_mt_1.0, plot_title = "") {
+  epochtemptype.plot.prop.df <- betanull_long_form %>%
+  select(Site1, Site2, Assembly_Process, EpochType, TempConditionType, AvgDepth, AvgDepth.Site1) %>%
+  mutate(DepthRange = paste0(round(AvgDepth, 1), "-", round(AvgDepth.Site1, 1)),
+         DepthRange = fct_reorder(DepthRange, AvgDepth)) %>%
+  group_by(DepthRange, EpochType, TempConditionType, Assembly_Process) %>%
+  tally() %>%  
+  ungroup() %>%
+  mutate(DescreteDepth = fct_rev(DepthRange))
+
+#temperatureinfo <- epochtemptype.plot.prop.df %>% 
+#  select(DescreteDepth, EpochType, TempConditionType, n) %>%
+#  distinct()
+
+# Plot figure
+temptype.plot.prop.consec <- ggplot(epochtemptype.plot.prop.df, aes(x = TempConditionType)) +
+  guides(fill = guide_legend(nrow = 2)) + 
+  scale_fill_manual(name = "Assembly Process", values = fill_assembly, 
+                    breaks = assembly_levels, 
+                    labels = assembly_labels, drop = FALSE) +
+  geom_bar( aes(fill = Assembly_Process), position = "fill") +
+  scale_y_continuous(expand = c(0,0), labels = scales::percent) +
+  scale_x_discrete(expand = c(0,0)) +
+  #coord_cartesian(expand = c(0,0)) +
+  ylab("") +
+  theme_bw() + 
+  theme(axis.title.y = element_text(size = rel(2)),
+        axis.text.y = element_text(size = rel(1.5)),
+        axis.title.x = element_blank(),
+        panel.spacing.y =  unit(1, "lines"),
+        panel.spacing.x =  unit(0, "lines"),
+        axis.ticks.x = element_blank(),
+        strip.text.x = element_blank(),
+        strip.text.y = element_text(size = rel(1)),
+        strip.placement = "outside", 
+        legend.position = "bottom")
+
+# legend_plot <- cowplot::get_legend(temptype.plot.prop.consec)
+
+temptype.plot.prop.consec <- temptype.plot.prop.consec + 
+  theme(legend.position = "none") + ggtitle(plot_title)
+
+return(list(figure = temptype.plot.prop.consec, legend = legend_plot, 
+            data = epochtemptype.plot.prop.df))
+}
+
+temp_change_plot_list <- purrr::map(otu_filter_levels, ~plot_tempchange(betanull_long_form = betanull_list_consecutive[[.x]], plot_title = .x) %>% purrr::pluck("figure")) 
+
+names(temp_change_plot_list) <- otu_filter_levels
+```
+
+```{r}
+#| fig-height: 7
+#| fig-width: 10
+ggpubr::ggarrange(plotlist = temp_change_plot_list, common.legend = T) # need to fix legend....
+
+```
+
+-   The decrease in homogeneous selection that we observed from the previous table is not evenly split across warm-cold transitions. And the patterns seem to be different depending if the mean or max filtering option is applied.
+
+-   I am not totally sure how to interpret the patterns we see. First, when filtering is at its most strict against rare taxa (mean, \>1%), drift dominates all transitions, with some homogenizing dispersal (high dispersal) in transitions that include warm years (warm-warm or warm-cold) and heterogeneous selection in cold years (recall that we did not previously observe heterogeneous selection –\> often it's interpreted to mean competition among sister taxa). However, I would not read too much into these patterns as both the heterogeneous selection and homogenizing dispersal are only 2 and 3 observations, respectively.
+
+-   The patterns for the mean-filtering do not hold when filtering is relaxed to 0.1%. The most we can say for them is that they are dominated by stochastic processes (drift, dispersal/dispersal limitation)
+
+-   I think part of the challenge here is that it is impossible to know what constitutes the "ephemeral" dust-deposited community and what part of the community is the "resident" community.
+
+-   Therefore, I am not particularly comfortable drawing much from these plots alone.
+
+### Does dust show a relationship to deterministic processes when max filtering is applied? 
+If the strong filtering we see in the max is due to years in which dust is high, we might expect that when max filtering is applied, a relationship can be observed between dust amount and deterministic filtering. 
+
+```{r}
+dust_data_betanull <- dust_data %>% nest() %>%
+  # prepare data for plotting and testing
+  mutate(dust_data_betanull = purrr::map(data, ~compute_dust_difference(betanull = betanull_list_consecutive$max_mt_0.1, # use consecutive comparisons only
+                                                                     sample_dust_data = .x,
+                                                                     dust_column = "dust_amount"))) %>%
+  # compute correlation of betaNTI
+  mutate(betanti_corr = purrr::map(dust_data_betanull, ~filter(.x, AssemblyMetric == "BetaNTI") %>%
+                                     select(AssemblyValue, DustDiff) %>%
+                                     cor.test(~ AssemblyValue + DustDiff, data = ., method = "pearson"))) %>%
+  # compute correlation of RCBC
+  mutate(RCBC_corr = purrr::map(dust_data_betanull, ~filter(.x, AssemblyMetric == "RCBC") %>%
+                                     select(AssemblyValue, DustDiff) %>%
+                                     cor.test(~ AssemblyValue + DustDiff, data = ., method = "pearson"))) %>%
+  # Plot
+  mutate(dust_size_plot = purrr::map2(dust_data_betanull, dust_size_class, ~ggplot(.x, aes(x = DustDiff, y = AssemblyValue)) +
+                                       geom_point(aes(color = Assembly_Process)) +
+                                       scale_color_manual(name = "Assembly Process", values = fill_assembly,
+                                                          breaks = assembly_levels,
+                                                          labels = assembly_labels) +
+                                       facet_wrap(~AssemblyMetric, scales = "free_y") +
+                                       theme_bw() + ggtitle(.y) + theme(legend.position = "none")))
+```
+
+```{r}
+#| warning: false
+#| fig-height: 35
+#| fig-width: 10
+# now pull out the correlations
+
+#response_plots <- purrr::map(flatten(dust_data_betanull$dust_size_plot), ~cowplot::plot_grid(plotlist = .x))
+
+cowplot::plot_grid(plotlist = dust_data_betanull$dust_size_plot, ncol = 2)
+```
+
+```{r}
+
+# now pull out the correlations
+dust_levels <- dust_data_betanull$dust_size_class
+dust_betanti_corr <- dust_data_betanull %>% 
+  mutate(betanti_tidy = purrr::map(betanti_corr, ~broom::tidy(.x))) %>%
+  unnest(betanti_tidy) %>%
+  select(dust_size_class, estimate:conf.high) %>%
+  mutate(dust_size_class = factor(dust_size_class, levels = dust_levels))
+  
+dust_betanti_corr %>% 
+  kbl(digits = 3) %>%
+  column_spec(4, bold = ifelse((dust_betanti_corr$p.value > 0.05 | is.na(dust_betanti_corr$p.value)), FALSE, TRUE)) %>%
+      kable_styling(bootstrap_options = c("striped", "hover", "condensed", "responsive"))
+
+```
+
+I think the answer is a resounding "no". When dust differences are greater, the max-filtering method is not more likely to show strong abiotic filtering, even for small sizes of dust. This could mean that the rare taxa that are being filtered are not coming from dust, or that dust is a poor proxy for aeolian deposition of microbes. Other possible sources of rare taxa might include other forms of dispersal for example hydrologically-mediated dispersal (from rivulets on the surface of the glacier), blooms of rare taxa that occur due to reasons we cannot detect at this temporal resolution, relic DNA.
+
+
 ## Concluding Thoughts
 
 -   We see strong evidence of abiotic selective processes driving the structure of these communities. Ecological drift is a second dominant assembly process. There is little evidence of biotic structuring within the community.
@@ -787,3 +974,6 @@ ggplot(CryoDiff.betanull,
 -   Climate epoch has a stronger influence on assembly process than temperature variation within an epoch. This may be due to different environmental/ecological forces being at play during each epoch. For example, climatic shifts, deposition shifts, or different sources of microbial communities.
 -   In particular, the Holocene is a very selection-dominated time, despite the capture of multiple and Warm-Warm, Warm-Cold transitions. In the LGS, by contrast, Warm-Warm and Warm-Cold transitions are dominated by more stochastic processes, drift, and high dispersal. A similar pattern is seen in the Pre-LGS period, but the Warm-cold/Warm-Warm transitions are not consistent between them in amount of selection at play.
 -   Microbial communities are significantly different in warm vs. cold periods. Interestingly cold seems to impart a greater selective pressure than warmth (though this is really only apparent prior to the Holocene). This may align with the role of photorophs in structuring the community, since colder years likely include less available light for phototrophs which could have downstream selective pressures on the community.
+-   Rare taxa seem to contribute strongly to the homogenizing (abiotic) filtering signal that we see. When removed, drift and other stochastic processes dominate. This suggests that the rare taxa are those that experience the strongest abiotic filtering of the community. Although why this is a question that we may only be able to hypothesize about. Potential options include:
+    -   1\) strong filtering of the dust depositional community
+    -   2\) intermittent blooms from rare taxa that experience strong filtering
