@@ -618,6 +618,29 @@ env_opt_tree_plots_allotu <- mclapply(seq_along(env_optima_list), function(x) {
 
 #### ====================================================================== ####
 
+# collapse branches at specified length
+pat_dist_for_assembly <- pat_dist_normalized
+pat_dist_for_assembly[pat_dist_normalized> 0.04] <-NA
+pat_dist_for_assembly[upper.tri(pat_dist_for_assembly)] <- NA  
+
+test <- pat_dist_for_assembly %>% data.frame() %>%
+  rownames_to_column(var = "rowname") %>%
+  pivot_longer(-rowname, names_to = "OTUID", values_to = "pat_dist") %>%
+  filter(!is.na(pat_dist)) %>%
+  left_join(input_all$taxonomy, by = c("OTUID"="OTU_ID")) %>%
+  left_join(input_all$taxonomy, by = c("rowname"="OTU_ID"), suffix = c(".firstotu", ".secondotu")) %>%
+  select(rowname, OTUID, pat_dist, contains("Domain"), contains("Phyla"),
+         contains("Class"), contains("Order"), contains("Family"), contains("Genus"),
+         contains("Species"))
+View(test)
+
+# percentages of comparisons where organisms are in the same phylogenetic level
+1-(test %>% filter(Class.firstotu == Class.secondotu) %>% nrow())/nrow(test) # number of phyla with patistric distance
+1-(test %>% filter(Order.firstotu == Order.secondotu) %>% nrow())/nrow(test) # number of orders with patistric distance
+1-(test %>% filter(Family.firstotu == Family.secondotu) %>% nrow())/nrow(test) # number of orders with patistric distance
+1-(test %>% filter(Genus.firstotu == Genus.secondotu) %>% nrow())/nrow(test)
+1-(test %>% filter(Species.firstotu == Species.secondotu) %>% nrow())/nrow(test)
+
 #### Save Data and Figures
 #### ====================================================================== ####
 

@@ -33,7 +33,7 @@ if (!dir.exists(figures.fp)) {dir.create(figures.fp)}
 
 
 # Set dataset
-data_set <- "cyanos" # default is "all"
+data_set <- "mean_mt_0.5" # default is "all"
 #### ====================================================================== ####
 
 # Helpful functions
